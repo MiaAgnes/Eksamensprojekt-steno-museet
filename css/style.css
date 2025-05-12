@@ -4,6 +4,14 @@
     box-sizing: border-box;
   }
 
+  body {
+    background-image: url('../images/grainy-background.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    overflow: hidden;
+}
 
 h1{
     display: flex;
@@ -21,7 +29,17 @@ h2{
     font-weight: normal;
 }
 
+.mens-marie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.mens-marie img {
+  width: 40%; 
+  max-width: 500px; 
+  height: auto; 
+}
 
 .image-btn {
     background-image: url('din-billede.jpg'); /* skift til din sti */
