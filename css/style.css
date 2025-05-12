@@ -10,7 +10,6 @@
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 h1{
@@ -30,16 +29,17 @@ h2{
 }
 
 .mens-marie {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.mens-marie img {
-  width: 40%; 
-  max-width: 500px; 
-  height: auto; 
+.mens-marie video {
+  width: 100%; 
+  max-width: 650px; 
 }
+
+
 
 .image-btn {
     background-image: url('din-billede.jpg'); /* skift til din sti */
