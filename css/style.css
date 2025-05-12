@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.25em;
+    font-size: 40px;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em 2.5em 1.5em 2.5em;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+
+
+.image-btn {
+    background-image: url('din-billede.jpg'); /* skift til din sti */
+    background-size: cover;
+    background-position: center;
+    color: #590051;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 25px;
+    cursor: pointer;
+  }
