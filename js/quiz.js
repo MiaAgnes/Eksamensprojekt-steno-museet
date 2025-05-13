@@ -5,7 +5,7 @@ const questions = [
         question: "Hvor lang tid varer menstruationscyklussen typisk?",
         answers: ["4 dage", "7 dage", "14 dage", "28 dage"],
         correct: 3,
-        feedback: "Menstruationscyklussen varer typisk 28 dage, men det kan variere fra person til person.",
+        feedback: "Menstruationscyklussen varer typisk 28 dage, men det kan variere. Nogle har en cyklus på 21 dage, andre op til 35 dage. Cyklussen starter på den første dag af menstruationen og slutter lige før næste blødning.",
         image: "../images/kalender.webp"
     },
     {
@@ -121,6 +121,12 @@ function checkAnswer(selectedIndex) {
     quizSection.classList.remove("visible");
     feedbackSection.classList.add("visible");
     feedbackMessage.textContent = selectedIndex === q.correct ? "Rigtigt!" : "Forkert!";
+    if(selectedIndex === q.correct)
+    {
+        feedbackMessage.style = "text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.6);"
+    } else {
+        feedbackMessage.style = "text-shadow: -2px -2px 5px rgba(255, 0, 0, 0.6);"
+    }
     feedbackInfo.textContent = q.feedback;
     if (selectedIndex === q.correct) score++;
 }

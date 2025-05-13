@@ -87,29 +87,46 @@
   .answer-button:hover {
     transform: translateY(-2px);
   }
+
+  #feedback-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    justify-content: center; 
+    text-align: center; 
+    min-height: 125vh; 
+}
   
-  /* Feedback */
   #feedback-message {
-    font-size: 26px;
+    text-align: center;
+    font-size: 70px;
+    color: #4b003b;
     font-weight: bold;
+}
+
+#feedback-info {
+    text-align: center;
+    font-size: 30px;
+    max-width: 1000px;
+    margin: 20px auto; /* Automatisk centreret */
     color: #4b003b;
-    margin-bottom: 10px;
-  }
-  
-  #feedback-info {
-    font-size: 16px;
-    color: #4b003b;
-  }
+    line-height: 1.4;
+}
+
   
   button {
     background-image: url('../images/grainy-background.webp');
     background-size: cover;
     border: none;
+    height: 75px;
+    width: 200px;
     padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 16px;
+    margin-top: 150px;
+    font-size: 30px;
     border-radius: 10px;
     cursor: pointer;
+    border: 2px solid #efb99c;
+    border-radius: 15px;
   }
 
   #final-score {
