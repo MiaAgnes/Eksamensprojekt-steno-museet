@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steno Museet</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <title>Susi-Cyklus Spil</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/spil.css">
 </head>
 <body>
-    <section class="mens-marie">
-        <video autoplay loop muted>
-            <source src="images/mens-marie.webm" type="video/webm">
-          </video>
-    </section>
+    
+  <div id="planetScreen" class="screen active">
+    <h1>Vælg en planet</h1>
+    <div id="planetList">
+      <div class="planet" onclick="choosePlanet('blodmaane')">Blodmåne</div>
+      <div class="planet" onclick="choosePlanet('solen')">Solen</div>
+    </div>
+  </div>
 
+  <div id="planetInfoScreen" class="screen">
+    <h2 id="planetTitle"></h2>
+    <p id="planetDescription"></p>
+    <button onclick="showScreen('actionScreen')">Start dag</button>
+  </div>
+
+  <div id="actionScreen" class="screen">
+    <h2>Hvad skal Susi have?</h2>
+    <button onclick="handleChoice('chokolade')">Chokolade</button>
+    <button onclick="handleChoice('gaatur')">Gå en tur</button>
+    <button onclick="handleChoice('te')">En kop te</button>
+  </div>
+
+  <div id="feedbackScreen" class="screen">
+    <h2 id="feedbackMessage"></h2>
+    <button onclick="returnToPlanets()">Tilbage til planeterne</button>
+  </div>
+
+  <script src="../js/susi-spil.js"></script>
 </body>
 </html>

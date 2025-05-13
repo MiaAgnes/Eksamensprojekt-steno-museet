@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-image: url('../images/grainy-background.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .screen {
+    display: none;
+    padding: 40px;
+  }
+  
+  .active {
+    display: block;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #ff99aa;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .planet {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .done {
+    text-decoration: line-through;
+    background: #ccc;
+    cursor: not-allowed;
+  }
