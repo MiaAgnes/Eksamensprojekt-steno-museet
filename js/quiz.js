@@ -40,14 +40,14 @@ const questions = [
         question: "Hvad skal man gøre, hvis man bløder igennem i skolen?",
         answers: ["Gå hjem uden at sige noget", "Grine det væk", "Tale med en voksen eller ven og skifte bind/tøj", "Gemme sig resten af dagen"],
         correct: 2,
-        feedback: "Hvis man bløder igennem, skal man tale med en voksen og få hjælp til at skifte.",
+        feedback: "Hvis man bløder igennem, skal man tale med en voksen og få skiftet bind, men husk: Det er helt normalt!.",
         image: "../images/bind.webp"
     },
     {
         question: "Hvor i kroppen sidder livmoderen?",
-        answers: ["I maven", "I halsen", "I brystet", "I hjernen"],
+        answers: ["I underlivet", "I halsen", "I brystet", "I hjernen"],
         correct: 0,
-        feedback: "Livmoderen sidder i underlivet, ikke i maven, men tæt på.",
+        feedback: "Livmoderen sidder i underlivet mellem blæren og endetarmen.",
         image: "../images/livmoder.webp"
 
     },
