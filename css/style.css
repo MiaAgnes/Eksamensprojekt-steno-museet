@@ -15,7 +15,7 @@
 h1{
     display: flex;
     justify-content: center;
-    margin-top: 1.25em;
+    margin-top: 0.5em;
     font-size: 40px;
 }
 
@@ -23,32 +23,32 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1.5em 2.5em 1.5em 2.5em;
+    margin: 0.75em 4em 0 4em;
     font-size: 25px;
     font-weight: normal;
 }
 
 .mens-marie {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.mens-marie video {
-  width: 100%; 
-  max-width: 650px; 
+.mens-marie img {
+  width: 40%; 
+  max-width: 500px; 
+  height: auto; 
 }
-
-
 
 .image-btn {
-    background-image: url('din-billede.jpg'); /* skift til din sti */
+    background-image: url('../images/grainy-background.webp'); /* skift til din sti */
     background-size: cover;
-    background-position: center;
     color: #590051;
-    padding: 14px 28px;
-    border: none;
-    border-radius: 12px;
+    width: 150px;       /* Ens bredde */
+    height: 60px;       /* Ens højde */
+    padding: 0;   
+    border: 2px solid #dc91e0;
+    border-radius: 15px;
     font-size: 25px;
     cursor: pointer;
   }
