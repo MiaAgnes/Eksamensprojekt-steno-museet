@@ -8,31 +8,55 @@
 </head>
 <body>
     
-  <div id="planetScreen" class="screen active">
-    <h1>Vælg en planet</h1>
-    <div id="planetList">
-      <div class="planet" onclick="choosePlanet('blodmaane')">Blodmåne</div>
-      <div class="planet" onclick="choosePlanet('solen')">Solen</div>
-    </div>
-  </div>
+    <section id="planetScreen" class="screen active">
+      
+        <!-- Susi video i midten -->
+        <section class="susi-video-container">
+          <video id="susiVideo" autoplay muted loop playsinline>
+            <source src="../images/susi-blinking.webm" type="video/webm">
+          </video>
+        </section>
+      
+        <!-- Planeter rundt om videoen -->
+        <section class="planet-circle">
+            <section class="planet" onclick="choosePlanet('bloodmoon')">
+                <img src="../images/blood-moon.webp" alt="Blodmånen">
+              </section>
+          <section class="planet" onclick="choosePlanet('spireplaneten')">
+            <img src="../images/spire-planet.webp" alt="Spire Planeten">
+          </section>
+          <section class="planet" onclick="choosePlanet('powerboost')">
+            <img src="../images/power-boost.webp" alt="Power Boost Planeten">
+          </section>
+          <section class="planet" onclick="choosePlanet('aegloesning')">
+            <img src="../images/ovulation-planet.webp" alt="Ægløsnings Planeten">
+          </section>
+          <section class="planet" onclick="choosePlanet('pms')">
+            <img src="../images/pms-island.webp" alt="PMS Øen">
+          </section>
+          <section class="planet" onclick="choosePlanet('skygge')">
+            <img src="../images/shadow-planet.webp" alt="Skygge Planeten">
+          </section>
+        </section>
+      </section>
 
-  <div id="planetInfoScreen" class="screen">
+  <section id="planetInfoScreen" class="screen">
     <h2 id="planetTitle"></h2>
     <p id="planetDescription"></p>
     <button onclick="showScreen('actionScreen')">Start dag</button>
-  </div>
+  </section>
 
-  <div id="actionScreen" class="screen">
+  <section id="actionScreen" class="screen">
     <h2>Hvad skal Susi have?</h2>
     <button onclick="handleChoice('chokolade')">Chokolade</button>
     <button onclick="handleChoice('gaatur')">Gå en tur</button>
     <button onclick="handleChoice('te')">En kop te</button>
-  </div>
+  </section>
 
-  <div id="feedbackScreen" class="screen">
+  <section id="feedbackScreen" class="screen">
     <h2 id="feedbackMessage"></h2>
     <button onclick="returnToPlanets()">Tilbage til planeterne</button>
-  </div>
+  </section>
 
   <script src="../js/susi-spil.js"></script>
 </body>
