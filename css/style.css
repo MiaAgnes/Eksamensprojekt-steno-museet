@@ -65,7 +65,12 @@ a{
     justify-content: center;  
     align-items: center;      
     gap: 1em;                
-    height: 100vh;            
+    height: 100vh;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrer containeren */
+    z-index: 1;          
   }
 
 .bind img{
@@ -93,11 +98,28 @@ a{
 }
 
 .bind-kop{
-    
-
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    z-index: 0;
 }
 
-.tampon-trusser{
 
+.top-left {
+    top: 0;
+    left: 0;
+    margin: 1em;
+  }
+
+  .bottom-right {
+    bottom: 0;
+    right: 0;
+    margin: 1em;
+  }
+
+.tampon-trusser{
+    width: 80px; /* Juster efter behov */
+    height: auto;
 }
 
