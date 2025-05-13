@@ -50,10 +50,7 @@ const questions = [
         question: "Hvad er det vigtigste at huske om menstruation?",
         answers: ["At skjule det så godt som muligt", "At det er ulækkert", "At det er naturligt og ikke noget man skal skamme sig over", "At det altid gør ondt"],
         correct: 4
-      },
-
-
-    // Tilføj flere spørgsmål her...
+      }
   ];
   
   let current = 0;
