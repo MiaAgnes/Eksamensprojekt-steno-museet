@@ -40,26 +40,31 @@
     display: flex;
     justify-content: center;
     font-size: 40px;
+    margin-top: 30px;
     color: #4b003b;
   }
 
-  .kalender {
-    width: 100%;           /* eller fx 300px hvis du vil styre det mere */
+  .kalender-container {
+    display: flex;
+    flex-direction: row;
+    gap: 900px;
+    margin-left: 25px;
+    padding-top: 175px;
+    width: 35%;         /* eller fx 300px hvis du vil styre det mere */
   }
 
-  .kalender img{
-    width: 20%; 
+  .kalender-container img{
+    width: 50%; 
     height: auto; 
     animation: float 3s ease-in-out infinite;
   }
   
   /* Svar-layout */
   #answer-options {
-    display: flex;
     justify-content: center;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr;
+    margin-top: -450px;
   }
   
   /* Svar-knapper */
@@ -67,8 +72,8 @@
     background-image: url('../images/grainy-background.webp'); /* skift til din sti */
     background-size: cover;
     color: #590051;
-    width: 250px;       /* Ens bredde */
-    height: 80px;       /* Ens højde */
+    width: 350px;       /* Ens bredde */
+    height: 90px;       /* Ens højde */
     padding: 0;   
     border: 2px solid #efb99c;
     border-radius: 15px;
@@ -80,7 +85,6 @@
   }
   
   .answer-button:hover {
-    background-color: #ffeef0;
     transform: translateY(-2px);
   }
   
@@ -98,7 +102,8 @@
   }
   
   button {
-    background: #fcd1e1;
+    background-image: url('../images/grainy-background.webp');
+    background-size: cover;
     border: none;
     padding: 10px 20px;
     margin-top: 20px;
@@ -106,7 +111,7 @@
     border-radius: 10px;
     cursor: pointer;
   }
-  
+
   #final-score {
     font-size: 18px;
     margin: 20px 0;
