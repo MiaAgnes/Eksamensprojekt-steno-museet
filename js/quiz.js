@@ -143,7 +143,8 @@ function nextQuestion() {
 function showResult() {
     resultSection.classList.add("visible");
     feedbackSection.classList.remove("visible");
-    finalScore.textContent = `Du fik ${score} ud af ${questions.length} rigtige.`;
+    quizSection.classList.remove("visible")
+    finalScore.textContent = `Du fik ${score} ud af ${questions.length} rigtige`;
 }
 
 function restartQuiz() {

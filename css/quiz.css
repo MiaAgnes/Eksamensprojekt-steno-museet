@@ -27,6 +27,10 @@
     display: block;
   }
   
+  .hidden {
+    display: none;
+}
+
   /* Spørgsmål */
   #question-number {
     display: flex;
@@ -89,7 +93,7 @@
   }
 
   #feedback-section {
-    display: flex;
+    
     flex-direction: column; 
     align-items: center;   
     justify-content: center; 
@@ -102,6 +106,7 @@
     font-size: 70px;
     color: #4b003b;
     font-weight: bold;
+    margin-top: 200px;
 }
 
 #feedback-info {
@@ -121,7 +126,7 @@
     height: 75px;
     width: 200px;
     padding: 10px 20px;
-    margin-top: 150px;
+    margin-top: 20px;
     font-size: 30px;
     border-radius: 10px;
     cursor: pointer;
@@ -130,9 +135,58 @@
   }
 
   #final-score {
-    font-size: 18px;
-    margin: 20px 0;
+    display: grid;
+    place-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: #4b003b;
+    margin-top: -30px;
+    margin-bottom: 10px;
   }
+
+  .final-score-tekst{
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 10px;
+    font-weight: normal;
+  }
+
+  .restart-button-container{
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* To kolonner til knapperne */
+    gap: 20px; /* Afstand mellem knapperne */
+    justify-content: center; /* Centrerer knapperne vandret */
+    align-items: center; /* Centrerer knapperne lodret */
+    
+  }
+
+  #restart-button{
+    background-image: url('../images/grainy-background.webp');
+    background-size: cover;
+    border: none;
+    height: 75px;
+    width: 250px;
+    font-size: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #efb99c;
+    border-radius: 15px;
+    color: #4b003b;
+  }
+
+  .infographic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infographic img {
+  width: 90%; 
+  height: auto; 
+}
 
   @keyframes float {
     0%   { transform: translateY(0); }

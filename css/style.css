@@ -50,12 +50,12 @@ h2{
     background-image: url('../images/grainy-background.webp'); /* skift til din sti */
     background-size: cover;
     color: #590051;
-    width: 150px;       /* Ens bredde */
-    height: 60px;       /* Ens højde */
+    width: 200px;       /* Ens bredde */
+    height: 75px;       /* Ens højde */
     padding: 0;   
     border: 2px solid #efb99c;
     border-radius: 15px;
-    font-size: 25px;
+    font-size: 30px;
     cursor: pointer;
     display: block;
     margin: 1em auto;
@@ -97,15 +97,13 @@ a{
 
 
 .top-left {
-    top: 0;
-  left: 0;
-  margin: 1em;
+  margin-left: 50px;
   }
 
   .bottom-right {
     bottom: 0;
     right: 0;
-    margin: 1em;
+    margin-left: 50px;
   }
 
 .tampon-trusser{
@@ -114,18 +112,6 @@ a{
     flex-direction: row;
     gap: 45em;
     z-index: 0;
-}
-
-.susi-cyklus {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.susi-cyklus video {
-width: 40%; 
-max-width: 500px; 
-height: auto; 
 }
 
 @keyframes float {
