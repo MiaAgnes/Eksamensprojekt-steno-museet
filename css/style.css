@@ -48,7 +48,7 @@ h2{
     width: 150px;       /* Ens bredde */
     height: 60px;       /* Ens højde */
     padding: 0;   
-    border: 2px solid #dc91e0;
+    border: 2px solid #efb99c;
     border-radius: 15px;
     font-size: 25px;
     cursor: pointer;
@@ -90,4 +90,13 @@ a{
   width: 40%; 
   max-width: 200px; 
   height: auto; 
+}
+
+.bind-kop{
+    
+
+}
+
+.tampon-trusser{
+
 }
