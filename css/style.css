@@ -10,7 +10,6 @@
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 h1{
@@ -31,13 +30,13 @@ h2{
 
 .mens-marie {
     display: flex;
-  justify-content: center;
-  align-items: center;
-  }
+    justify-content: center;
+    align-items: center;
+}
 
 .mens-marie img {
   width: 40%; 
-  max-width: 450px; 
+  max-width: 500px; 
   height: auto; 
 }
 
@@ -100,3 +99,4 @@ a{
 .tampon-trusser{
 
 }
+
