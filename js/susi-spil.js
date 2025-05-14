@@ -54,6 +54,7 @@ function choosePlanet(planet) {
   if (planetInfo[planet]) {
     document.getElementById('planetTitle').textContent = planetInfo[planet].title;
     document.getElementById('planetDescription').textContent = planetInfo[planet].description;
+    updateImage(); 
   } else {
     document.getElementById('planetTitle').textContent = 'Ukendt planet';
     document.getElementById('planetDescription').textContent = 'Der er ikke nogen beskrivelse for denne planet.';
