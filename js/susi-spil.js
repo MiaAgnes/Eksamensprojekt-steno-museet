@@ -14,7 +14,7 @@ function choosePlanet(planet) {
     'bloodmoon': {
       title: 'Blodmånen',
       description: 'Blodmånen markerer starten på Susis cyklus (dag 1–7). Her har hun menstruation og kan føle sig træt og følsom. Hjælp hende med at vælge det, der gør hende glad og komfortabel i denne fase!',
-      image: '../images/bloodmoon.webp'
+      image: '../images/blood-moon.webp'
     },
     'spireplaneten': {
       title: 'Spire Planeten',
