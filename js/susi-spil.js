@@ -117,6 +117,18 @@ function handleChoice(choice) {
   showScreen('feedbackScreen');
 }
 
+function updateChoices(choices) {
+  const actionButtons =document.getElementById('actionButtons');
+  actionButtons.innerHTML = ""; 
+
+  choices.forEach(choide => {
+    const button = document.createElement("button");
+    button.textContent = choice.text;
+    button.onclick = () => handleChoice(choice.value);
+    actionButtons.appendChild(button);
+  });
+}
+
 function returnToPlanets() {
   const planets = document.querySelectorAll('.planet');
   planets.forEach(p => {
