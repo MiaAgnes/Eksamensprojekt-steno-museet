@@ -102,6 +102,21 @@ function choosePlanet(planet) {
     document.getElementById('planetDescription').textContent = 'Der er ikke nogen beskrivelse for denne planet.';
   }
 
+  // Skift planetens billede til gråt og fjern klikbarhed
+  const planetElement = document.querySelector(`.planet[data-planet="${planet}"]`);
+  if (planetElement) {
+    const imgElement = planetElement.querySelector('img');
+    const grayImage = planetElement.getAttribute('data-gray');
+    if (imgElement && grayImage) {
+      imgElement.src = grayImage;
+    }
+
+    // Fjern klikfunktion og cursor
+    planetElement.onclick = null;
+    planetElement.style.cursor = 'default';
+    planetElement.classList.add('done'); // hvis du vil style brugte planeter i CSS
+  }
+
   showScreen('planetInfoScreen');
 }
 

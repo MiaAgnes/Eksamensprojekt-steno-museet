@@ -19,34 +19,39 @@
       
         <!-- Planeter rundt om videoen -->
         <section class="planet-circle">
-            <section class="planet" onclick="choosePlanet('bloodmoon')">
-                <section class="planet-wrapper">
-                    <img src="../images/blood-moon.webp" alt="Blodmånen">
-                </section>
-              </section>
-          <section class="planet" onclick="choosePlanet('spireplaneten')">
+          <section class="planet" data-planet="bloodmoon" data-original="../images/blood-moon.webp" data-gray="../images/blood-moon-grey.webp" onclick="choosePlanet('bloodmoon')">
             <section class="planet-wrapper">
-                <img src="../images/spire-planet.webp" alt="Spire Planeten">
+              <img src="../images/blood-moon.webp" alt="Blodmånen">
             </section>
           </section>
-          <section class="planet" onclick="choosePlanet('powerboost')">
+          
+          <section class="planet" data-planet="spireplaneten" data-original="../images/spire-planet.webp" data-gray="../images/spire-planet-grey.webp" onclick="choosePlanet('spireplaneten')">
             <section class="planet-wrapper">
-                <img src="../images/power-boost.webp" alt="Power Boost Planeten">
+              <img src="../images/spire-planet.webp" alt="Spire Planeten">
             </section>
           </section>
-          <section class="planet" onclick="choosePlanet('aegloesning')">
+          
+          <section class="planet" data-planet="powerboost" data-original="../images/power-boost.webp" data-gray="../images/power-boost-grey.webp" onclick="choosePlanet('powerboost')">
             <section class="planet-wrapper">
-                <img src="../images/ovulation-planet.webp" alt="Ægløsnings Planeten">
+              <img src="../images/power-boost.webp" alt="Power Boost Planeten">
             </section>
           </section>
-          <section class="planet" onclick="choosePlanet('pms')">
+          
+          <section class="planet" data-planet="aegloesning" data-original="../images/ovulation-planet.webp" data-gray="../images/ovulation-grey.webp" onclick="choosePlanet('aegloesning')">
             <section class="planet-wrapper">
-                <img src="../images/pms-island.webp" alt="PMS Øen">
+              <img src="../images/ovulation-planet.webp" alt="Ægløsnings Planeten">
             </section>
           </section>
-          <section class="planet" onclick="choosePlanet('skygge')">
+          
+          <section class="planet" data-planet="pms" data-original="../images/pms-island.webp" data-gray="../images/pms-island-grey.webp" onclick="choosePlanet('pms')">
             <section class="planet-wrapper">
-                <img src="../images/shadow-planet.webp" alt="Skygge Planeten">
+              <img src="../images/pms-island.webp" alt="PMS Øen">
+            </section>
+          </section>
+          
+          <section class="planet" data-planet="skygge" data-original="../images/shadow-planet.webp" data-gray="../images/shadow-planet-grey.webp" onclick="choosePlanet('skygge')">
+            <section class="planet-wrapper">
+              <img src="../images/shadow-planet.webp" alt="Skygge Planeten">
             </section>
           </section>
         </section>

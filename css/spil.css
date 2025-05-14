@@ -86,7 +86,6 @@
 
 .done {
     text-decoration: line-through;
-    background: #ccc;
     cursor: not-allowed;
 }
 
