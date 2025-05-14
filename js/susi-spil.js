@@ -13,29 +13,43 @@ function choosePlanet(planet) {
   const planetInfo = {
     'bloodmoon': {
       title: 'Blodmånen',
-      description: 'Blodmånen markerer starten på Susis cyklus (dag 1–7). Her har hun menstruation og kan føle sig træt og følsom. Hjælp hende med at vælge det, der gør hende glad og komfortabel i denne fase!'
+      description: 'Blodmånen markerer starten på Susis cyklus (dag 1–7). Her har hun menstruation og kan føle sig træt og følsom. Hjælp hende med at vælge det, der gør hende glad og komfortabel i denne fase!',
+      image: '../images/bloodmoon.webp'
     },
     'spireplaneten': {
       title: 'Spire Planeten',
-      description: 'Spireplaneten markerer dagene efter Susis menstruation (dag 8–11). Hun begynder at få mere energi og føle sig lettere tilpas. Hjælp hende med at vælge det, der støtter hendes spirende humør og lyst til at komme i gang igen!'
+      description: 'Spireplaneten markerer dagene efter Susis menstruation (dag 8–11). Hun begynder at få mere energi og føle sig lettere tilpas. Hjælp hende med at vælge det, der støtter hendes spirende humør og lyst til at komme i gang igen!',
+      image: '../images/spire-planet.webp'
     },
     'powerboost': {
       title: 'Power Boost Planeten',
-      description: 'Power Boost Planeten markerer dagene, hvor Susis energi topper (dag 12–13). Hun føler sig stærk, udadvendt og klar på det hele! Hjælp hende med at vælge det, der matcher hendes power og drive i denne fase.'
+      description: 'Power Boost Planeten markerer dagene, hvor Susis energi topper (dag 12–13). Hun føler sig stærk, udadvendt og klar på det hele! Hjælp hende med at vælge det, der matcher hendes power og drive i denne fase.',
+      image: '../images/power-boost.webp'
     },
     'aegloesning': {
       title: 'Ægløsnings Planeten',
-      description: 'Ægløsningsplaneten markerer midten af Susis cyklus (dag 14–15). Hun føler sig energisk, glad og ekstra sprudlende. Hjælp hende med at vælge det, der får hende til at skinne endnu mere i denne fase!'
+      description: 'Ægløsningsplaneten markerer midten af Susis cyklus (dag 14–15). Hun føler sig energisk, glad og ekstra sprudlende. Hjælp hende med at vælge det, der får hende til at skinne endnu mere i denne fase!',
+      image: '../images/aegloesning.webp'
     },
     'pms': {
       title: 'PMS Øen',
-      description: 'PMS-øen markerer dagene op til Susis menstruation (dag 16–25). Hun kan føle sig irritabel, træt eller trist, men kan have lyst til lækkert mad, lidt kærlig omsorg og lidt stille tid. Hjælp hende med at vælge det, der kan løfte hendes humør i denne fase!'
+      description: 'PMS-øen markerer dagene op til Susis menstruation (dag 16–25). Hun kan føle sig irritabel, træt eller trist, men kan have lyst til lækkert mad, lidt kærlig omsorg og lidt stille tid. Hjælp hende med at vælge det, der kan løfte hendes humør i denne fase!',
+      image: '../images/pms.webp'
     },
     'skygge': {
       title: 'Skygge Planeten',
-      description: 'Skyggeplaneten markerer de sidste dage i Susis cyklus (dag 26–28). Hun føler sig tung, træt og har brug for at trække sig lidt tilbage. Hjælp hende med at vælge det, der giver ro og tryghed i denne fase.'
+      description: 'Skyggeplaneten markerer de sidste dage i Susis cyklus (dag 26–28). Hun føler sig tung, træt og har brug for at trække sig lidt tilbage. Hjælp hende med at vælge det, der giver ro og tryghed i denne fase.',
+      image: '../images/skygge.webp'
     }
   };
+
+  const questionImage = document.querySelectorAll(".question-image");
+
+  function updateImage() {
+    questionImage.forEach(image => {
+      image.src = planetInfo[currentPlanet].image;
+    });
+  }
 
   if (planetInfo[planet]) {
     document.getElementById('planetTitle').textContent = planetInfo[planet].title;
