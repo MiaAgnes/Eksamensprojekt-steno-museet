@@ -118,55 +118,54 @@ function handleChoice(choice) {
 
   if (currentPlanet === 'bloodmoon') {
     if (choice === 'chokolade' || choice === 'te') {
-      feedbackHeader = 'Godt valg!';
-      feedbackMessage = 'Susi elsker chokolade og te under menstruationen.';
+      feedbackHeader = 'Susi blev glad!';
+      feedbackMessage = 'På Blodmånen har Susi mest lyst til chokolade og te – det trøster og varmer. Hun er træt og har brug for ro, så en tur må vente til senere i cyklussen.';
     } else {
-      feedbackHeader = 'Ups!';
-      feedbackMessage = 'Susi gider ikke gå en tur lige nu.';
+      feedbackHeader = 'Susi blev sur!';
+      feedbackMessage = 'På Blodmånen har Susi mest lyst til chokolade og te – det trøster og varmer. Hun er træt og har brug for ro, så en tur må vente til senere i cyklussen.';
     }
   } else if (currentPlanet === 'spireplaneten') {
     if (choice === 'bowling' || choice === 'snakke') {
-      feedbackHeader = 'Perfekt!';
-      feedbackMessage = 'Susi nyder social energi og sjov.';
+      feedbackHeader = 'Susi blev glad!';
+      feedbackMessage = 'På Spireplaneten elsker Susi at lege og grine med sine venner. Hun vil slet ikke sove, for der er alt for meget sjov at lave!';
     } else {
-      feedbackHeader = 'Hmm…';
-      feedbackMessage = 'Det var ikke lige det, hun havde lyst til.';
+      feedbackHeader = 'Susi blev sur!';
+      feedbackMessage = 'På Spireplaneten elsker Susi at lege og grine med sine venner. Hun vil slet ikke sove, for der er alt for meget sjov at lave!';
     }
   } else if (currentPlanet === 'powerboost') {
     if (choice === 'walk') {
-      feedbackHeader = 'Ja tak!';
-      feedbackMessage = 'Susi er sprængfyldt af energi og vil gerne ud!';
+      feedbackHeader = 'Susi blev glad!';
+      feedbackMessage = 'På Powerboost-planeten får Susi masser af energi! Hun vil hellere gå og bevæge sig, end at sidde stille og se tv.';
     } else {
-      feedbackHeader = 'Ikke helt.';
-      feedbackMessage = 'Det er fint, men hun vil hellere bevæge sig.';
+      feedbackHeader = 'Susi blev sur!';
+      feedbackMessage = 'På Powerboost-planeten får Susi masser af energi! Hun vil hellere gå og bevæge sig, end at sidde stille og se tv.';
     }
   } else if (currentPlanet === 'aegloesning') {
     if (choice === 'kys' || choice === 'bowling') {
-      feedbackHeader = 'Yes!';
-      feedbackMessage = 'Det topper lige humøret i dag.';
+      feedbackHeader = 'Susi blev glad!';
+      feedbackMessage = 'På Ægløsnings Planeten Susi fuld af energi og lidt flirtende. Hun vil hellere bowle, lege og måske give et lille kys end at sidde stille og slappe af.';
     } else {
-      feedbackHeader = 'Okay…';
-      feedbackMessage = 'Noget mere sprudlende havde været bedre.';
+      feedbackHeader = 'Susi blev sur!';
+      feedbackMessage = 'På Ægløsnings Planeten Susi fuld af energi og lidt flirtende. Hun vil hellere bowle, lege og måske give et lille kys end at sidde stille og slappe af.';
     }
   } else if (currentPlanet === 'pms') {
     if (choice === 'burger' || choice === 'alene') {
-      feedbackHeader = 'Godt valg!';
-      feedbackMessage = 'Lidt mad og ro hjælper.';
+      feedbackHeader = 'Susi blev glad!';
+      feedbackMessage = 'På PMS Øen har Susi mest lyst til en kæmpe burger og lidt alene-tid. Hun gider ikke triste TikTok-videoer, men vil bare hygge sig i fred.';
     } else {
-      feedbackHeader = 'Måske ikke det bedste…';
-      feedbackMessage = 'Det hjælper ikke helt på PMS\'en.';
+      feedbackHeader = 'Susi blev sur!';
+      feedbackMessage = 'På PMS Øen har Susi mest lyst til en kæmpe burger og lidt alene-tid. Hun gider ikke triste TikTok-videoer, men vil bare hygge sig i fred.';
     }
   } else if (currentPlanet === 'skygge') {
     if (choice === 'varmepude' || choice === 'afslapning') {
-      feedbackHeader = 'Det hjælper.';
-      feedbackMessage = 'Det letter lidt på humøret.';
+      feedbackHeader = 'Susi blev glad!';
+      feedbackMessage = 'På Skygge Planeten vil Susi bare slappe af med en varmepude og ro omkring sig. Ingen hunde der gør, tak!';
     } else {
-      feedbackHeader = 'Av…';
-      feedbackMessage = 'En hund der gør er for meget i dag.';
+      feedbackHeader = 'Susi blev sur!';
+      feedbackMessage = 'På Skygge Planeten vil Susi bare slappe af med en varmepude og ro omkring sig. Ingen hunde der gør, tak!';
     }
   } else {
     feedbackHeader = 'Vælg en planet først!';
-    feedbackMessage = '';
   }
 
   if (correctAnswers.includes(choice)) {

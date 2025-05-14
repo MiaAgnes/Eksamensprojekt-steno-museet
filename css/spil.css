@@ -192,6 +192,8 @@
     color: #590051;
     margin-top: 7rem;
     margin-bottom: 5rem;
+    margin-right: 20rem;
+    margin-left: 20rem;
   }
 
   @keyframes pulse {
