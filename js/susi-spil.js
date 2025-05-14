@@ -129,6 +129,16 @@ function updateChoices(choices) {
   });
 }
 
+updateChoices ([
+  { text: "Panodil", value: "panodil" },
+  { text: "Snakke", value: "snakke" },
+  { text: "Varmepude", value: "varmepude" }
+]);
+
+function handleChoice(choice) {
+  console.log("Du valgte: " + choice);
+}
+
 function returnToPlanets() {
   const planets = document.querySelectorAll('.planet');
   planets.forEach(p => {
