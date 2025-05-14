@@ -5,43 +5,85 @@ let currentPlanet = '';
 function showScreen(screenId) {
   document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
   document.getElementById(screenId).classList.add('active');
+  if(screenId === "actionScreen")
+  {
+    updateChoices();
+  }  
 }
+
+const planetInfo = {
+  'bloodmoon': {
+    title: 'Blodmånen',
+    description: 'Blodmånen markerer starten på Susis cyklus (dag 1–7). Her har hun menstruation og kan føle sig træt og følsom. Hjælp hende med at vælge det, der gør hende glad og komfortabel i denne fase!',
+    image: '../images/blood-moon.webp',
+    answers: [
+      { text: "Chokolade", value: "chokolade", image: "../images/chokolade.webp" },
+      { text: "Gå en tur", value: "walk", image: "../images/walk.webp" },
+      { text: "Te", value: "te", image: "../images/te.webp" }
+    ],
+    correctAnswer: ["chokolade", "te"]
+  },
+  'spireplaneten': {
+    title: 'Spire Planeten',
+    description: 'Spireplaneten markerer dagene efter Susis menstruation (dag 8–11). Hun begynder at få mere energi og føle sig lettere tilpas. Hjælp hende med at vælge det, der støtter hendes spirende humør og lyst til at komme i gang igen!',
+    image: '../images/spire-planet.webp',
+    answers: [
+      { text: "Bowling", value: "bowling", image: "../images/bowling.webp" },
+      { text: "Snakke", value: "snakke", image: "../images/bla.webp" },
+      { text: "Sove", value: "sove", image: "../images/seng.webp" }
+    ],
+    correctAnswer: ["bowling", "snakke"]
+  },
+  'powerboost': {
+    title: 'Power Boost Planeten',
+    description: 'Power Boost Planeten markerer dagene, hvor Susis energi topper (dag 12–13). Hun føler sig stærk, udadvendt og klar på det hele! Hjælp hende med at vælge det, der matcher hendes power og drive i denne fase.',
+    image: '../images/power-boost.webp',
+    answers: [
+      { text: "Gaming", value: "gaming", image: "../images/computer.webp" },
+      { text: "Gå en tur", value: "walk", image: "../images/walk.webp" },
+      { text: "Se serie", value: "serie", image: "../images/tv.webp" }
+    ],
+    correctAnswer: ["Gå en tur"]
+  },
+  'aegloesning': {
+    title: 'Ægløsnings Planeten',
+    description: 'Ægløsningsplaneten markerer midten af Susis cyklus (dag 14–15). Hun føler sig energisk, glad og ekstra sprudlende. Hjælp hende med at vælge det, der får hende til at skinne endnu mere i denne fase!',
+    image: '../images/ovulation-planet.webp',
+    answers: [
+      { text: "Kys", value: "kys", image: "../images/kys.webp" },
+      { text: "Bowling", value: "bowling", image: "../images/bowling.webp" },
+      { text: "Slappe af", value: "afslapning", image: "../images/pude.webp" }
+    ],
+    correctAnswer: ["kys", "bowling"]
+  },
+  'pms': {
+    title: 'PMS Øen',
+    description: 'PMS-øen markerer dagene op til Susis menstruation (dag 16–25). Hun kan føle sig irritabel, træt eller trist, men kan have lyst til lækkert mad, lidt kærlig omsorg og lidt stille tid. Hjælp hende med at vælge det, der kan løfte hendes humør i denne fase!',
+    image: '../images/pms-island.webp',
+    answers: [
+      { text: "Trist video", value: "video", image: "../images/phone.webp" },
+      { text: "Burger", value: "burger", image: "../images/burger.webp" },
+      { text: "Alenetid", value: "alene", image: "../images/alene.webp" }
+    ],
+    correctAnswer: ["burger", "alene"]
+  },
+  'skygge': {
+    title: 'Skygge Planeten',
+    description: 'Skyggeplaneten markerer de sidste dage i Susis cyklus (dag 26–28). Hun føler sig tung, træt og har brug for at trække sig lidt tilbage. Hjælp hende med at vælge det, der giver ro og tryghed i denne fase.',
+    image: '../images/shadow-planet.webp',
+    answers: [
+      { text: "Varmepude", value: "varmepude", image: "../images/varmepude.webp" },
+      { text: "Hund der gør", value: "hund", image: "../images/dog.webp" },
+      { text: "Slappe af", value: "afslapning", image: "../images/pude.webp" }
+    ],
+    correctAnswer: ["varmepude", "afslapning"]
+  }
+};
+
+let indexCounter = 0;
 
 function choosePlanet(planet) {
   currentPlanet = planet;
-
-  const planetInfo = {
-    'bloodmoon': {
-      title: 'Blodmånen',
-      description: 'Blodmånen markerer starten på Susis cyklus (dag 1–7). Her har hun menstruation og kan føle sig træt og følsom. Hjælp hende med at vælge det, der gør hende glad og komfortabel i denne fase!',
-      image: '../images/blood-moon.webp'
-    },
-    'spireplaneten': {
-      title: 'Spire Planeten',
-      description: 'Spireplaneten markerer dagene efter Susis menstruation (dag 8–11). Hun begynder at få mere energi og føle sig lettere tilpas. Hjælp hende med at vælge det, der støtter hendes spirende humør og lyst til at komme i gang igen!',
-      image: '../images/spire-planet.webp'
-    },
-    'powerboost': {
-      title: 'Power Boost Planeten',
-      description: 'Power Boost Planeten markerer dagene, hvor Susis energi topper (dag 12–13). Hun føler sig stærk, udadvendt og klar på det hele! Hjælp hende med at vælge det, der matcher hendes power og drive i denne fase.',
-      image: '../images/power-boost.webp'
-    },
-    'aegloesning': {
-      title: 'Ægløsnings Planeten',
-      description: 'Ægløsningsplaneten markerer midten af Susis cyklus (dag 14–15). Hun føler sig energisk, glad og ekstra sprudlende. Hjælp hende med at vælge det, der får hende til at skinne endnu mere i denne fase!',
-      image: '../images/ovulation-planet.webp'
-    },
-    'pms': {
-      title: 'PMS Øen',
-      description: 'PMS-øen markerer dagene op til Susis menstruation (dag 16–25). Hun kan føle sig irritabel, træt eller trist, men kan have lyst til lækkert mad, lidt kærlig omsorg og lidt stille tid. Hjælp hende med at vælge det, der kan løfte hendes humør i denne fase!',
-      image: '../images/pms-island.webp'
-    },
-    'skygge': {
-      title: 'Skygge Planeten',
-      description: 'Skyggeplaneten markerer de sidste dage i Susis cyklus (dag 26–28). Hun føler sig tung, træt og har brug for at trække sig lidt tilbage. Hjælp hende med at vælge det, der giver ro og tryghed i denne fase.',
-      image: '../images/shadow-planet.webp'
-    }
-  };
 
   const questionImage = document.querySelectorAll(".question-image");
 
@@ -117,15 +159,17 @@ function handleChoice(choice) {
   showScreen('feedbackScreen');
 }
 
-function updateChoices(choices) {
-  const actionButtons =document.getElementById('actionButtons');
+function updateChoices() {
+  const choices = planetInfo[currentPlanet].answers;
+  const actionButtons = document.getElementById('actionButtons');
   actionButtons.innerHTML = ""; 
 
-  choices.forEach(choide => {
+  choices.forEach(choice => {
     const button = document.createElement("button");
     button.className = "choice-button";
+    button.innerHTML = choice.text
 
-    const image = document.createdElement("img");
+    const image = document.createElement("img");
     image.src = choice.image;
     image.alt = choice.text;
     image.className = "choice-image";
@@ -135,12 +179,6 @@ function updateChoices(choices) {
     actionButtons.appendChild(button);
   });
 }
-
-updateChoices ([
-  { text: "Panodil", value: "panodil", image: "../images/panodil.webp" },
-  { text: "Snakke", value: "snakke", image: "../images/bla.webp" },
-  { text: "Varmepude", value: "varmepude", image: "../images/varmepude.webp" },
-]);
 
 function handleChoice(choice) {
   console.log("Du valgte: " + choice);
