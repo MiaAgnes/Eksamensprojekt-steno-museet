@@ -178,11 +178,7 @@ function updateChoices() {
     button.onclick = () => handleChoice(choice.value);
     actionButtons.appendChild(button);
   });
-}
-
-function handleChoice(choice) {
-  console.log("Du valgte: " + choice);
-}
+};
 
 function returnToPlanets() {
   const planets = document.querySelectorAll('.planet');

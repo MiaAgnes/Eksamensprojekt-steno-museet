@@ -150,6 +150,20 @@
     transform: scale(1.05);
 }
 
+.susi-cyklus-spil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: -26rem;
+  }
+  
+  .susi-cyklus-spil video {
+    width: 40%; 
+    max-width: 550px; 
+    height: auto; 
+  }
+
   @keyframes pulse {
     0%, 100% {
         transform: scale(1);
