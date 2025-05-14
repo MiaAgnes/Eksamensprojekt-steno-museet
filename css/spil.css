@@ -117,6 +117,25 @@
     margin-bottom: -30px;
 }
 
+.choice-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.choice-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.choice-button:hover .choice-image {
+    transform: scale(1.05);
+}
+
   @keyframes pulse {
     0%, 100% {
         transform: scale(1);

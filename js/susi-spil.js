@@ -123,16 +123,23 @@ function updateChoices(choices) {
 
   choices.forEach(choide => {
     const button = document.createElement("button");
-    button.textContent = choice.text;
+    button.className = "choice-button";
+
+    const image = document.createdElement("img");
+    image.src = choice.image;
+    image.alt = choice.text;
+    image.className = "choice-image";
+
+    button.appendChild(image);
     button.onclick = () => handleChoice(choice.value);
     actionButtons.appendChild(button);
   });
 }
 
 updateChoices ([
-  { text: "Panodil", value: "panodil" },
-  { text: "Snakke", value: "snakke" },
-  { text: "Varmepude", value: "varmepude" }
+  { text: "Panodil", value: "panodil", image: "../images/panodil.webp" },
+  { text: "Snakke", value: "snakke", image: "../images/bla.webp" },
+  { text: "Varmepude", value: "varmepude", image: "../images/varmepude.webp" },
 ]);
 
 function handleChoice(choice) {
