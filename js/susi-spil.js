@@ -29,17 +29,17 @@ function choosePlanet(planet) {
     'aegloesning': {
       title: 'Ægløsnings Planeten',
       description: 'Ægløsningsplaneten markerer midten af Susis cyklus (dag 14–15). Hun føler sig energisk, glad og ekstra sprudlende. Hjælp hende med at vælge det, der får hende til at skinne endnu mere i denne fase!',
-      image: '../images/aegloesning.webp'
+      image: '../images/ovulation-planet.webp'
     },
     'pms': {
       title: 'PMS Øen',
       description: 'PMS-øen markerer dagene op til Susis menstruation (dag 16–25). Hun kan føle sig irritabel, træt eller trist, men kan have lyst til lækkert mad, lidt kærlig omsorg og lidt stille tid. Hjælp hende med at vælge det, der kan løfte hendes humør i denne fase!',
-      image: '../images/pms.webp'
+      image: '../images/pms-island.webp'
     },
     'skygge': {
       title: 'Skygge Planeten',
       description: 'Skyggeplaneten markerer de sidste dage i Susis cyklus (dag 26–28). Hun føler sig tung, træt og har brug for at trække sig lidt tilbage. Hjælp hende med at vælge det, der giver ro og tryghed i denne fase.',
-      image: '../images/skygge.webp'
+      image: '../images/shadow-planet.webp'
     }
   };
 
