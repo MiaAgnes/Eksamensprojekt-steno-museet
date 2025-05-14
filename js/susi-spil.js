@@ -29,7 +29,7 @@ function choosePlanet(planet) {
     },
     'pms': {
       title: 'PMS Øen',
-      description: 'PMS-øen markerer dagene op til Susis menstruation (dag 16–25). Hun kan føle sig irritabel, træt eller trist — men også have brug for søde treats og omsorg. Hjælp hende med at vælge det, der kan løfte hendes humør i denne fase!'
+      description: 'PMS-øen markerer dagene op til Susis menstruation (dag 16–25). Hun kan føle sig irritabel, træt eller trist, men kan have lyst til lækkert mad, lidt kærlig omsorg og lidt stille tid. Hjælp hende med at vælge det, der kan løfte hendes humør i denne fase!'
     },
     'skygge': {
       title: 'Skygge Planeten',
