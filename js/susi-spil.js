@@ -13,27 +13,27 @@ function choosePlanet(planet) {
   const planetInfo = {
     'bloodmoon': {
       title: 'Blodmånen',
-      description: 'Starten på Susis cyklus. Hun har menstruation og føler sig træt.'
+      description: 'Blodmånen markerer starten på Susis cyklus (dag 1–7). Her har hun menstruation og kan føle sig træt og følsom. Hjælp hende med at vælge det, der gør hende glad og komfortabel i denne fase!'
     },
     'spireplaneten': {
       title: 'Spire Planeten',
-      description: 'Susi mærker nyt håb og energi spirer frem.'
+      description: 'Spireplaneten markerer dagene efter Susis menstruation (dag 8–11). Hun begynder at få mere energi og føle sig lettere tilpas. Hjælp hende med at vælge det, der støtter hendes spirende humør og lyst til at komme i gang igen!'
     },
     'powerboost': {
       title: 'Power Boost Planeten',
-      description: 'Susi er fuld af energi og power!'
+      description: 'Power Boost Planeten markerer dagene, hvor Susis energi topper (dag 12–13). Hun føler sig stærk, udadvendt og klar på det hele! Hjælp hende med at vælge det, der matcher hendes power og drive i denne fase.'
     },
     'aegloesning': {
       title: 'Ægløsnings Planeten',
-      description: 'Susi er midt i sin cyklus og føler sig ovenpå.'
+      description: 'Ægløsningsplaneten markerer midten af Susis cyklus (dag 14–15). Hun føler sig energisk, glad og ekstra sprudlende. Hjælp hende med at vælge det, der får hende til at skinne endnu mere i denne fase!'
     },
     'pms': {
       title: 'PMS Øen',
-      description: 'Susi føler sig irritabel og har brug for ekstra omsorg.'
+      description: 'PMS-øen markerer dagene op til Susis menstruation (dag 16–25). Hun kan føle sig irritabel, træt eller trist — men også have brug for søde treats og omsorg. Hjælp hende med at vælge det, der kan løfte hendes humør i denne fase!'
     },
     'skygge': {
       title: 'Skygge Planeten',
-      description: 'En dag hvor Susi føler sig lidt nede.'
+      description: 'Skyggeplaneten markerer de sidste dage i Susis cyklus (dag 26–28). Hun føler sig tung, træt og har brug for at trække sig lidt tilbage. Hjælp hende med at vælge det, der giver ro og tryghed i denne fase.'
     }
   };
 
