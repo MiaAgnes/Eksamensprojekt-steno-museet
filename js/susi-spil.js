@@ -107,48 +107,66 @@ function choosePlanet(planet) {
 
 function handleChoice(choice) {
   const susiVideo = document.getElementById('susiVideo-feedback');
-const susiVideoSource = document.getElementById('susiVideoSource');
+  const susiVideoSource = document.getElementById('susiVideoSource');
+  const feedbackHeaderEl = document.getElementById('feedbackHeader');
+  const feedbackMessageEl = document.getElementById('feedbackMessage');
+
   const correctAnswers = planetInfo[currentPlanet]?.correctAnswer || [];
-  let feedback = '';
+
+  let feedbackHeader = '';
+  let feedbackMessage = '';
 
   if (currentPlanet === 'bloodmoon') {
     if (choice === 'chokolade' || choice === 'te') {
-      feedback = 'Godt valg! Susi elsker chokolade og te under menstruationen.';
+      feedbackHeader = 'Godt valg!';
+      feedbackMessage = 'Susi elsker chokolade og te under menstruationen.';
     } else {
-      feedback = 'Ups! Susi gider ikke gå en tur lige nu.';
+      feedbackHeader = 'Ups!';
+      feedbackMessage = 'Susi gider ikke gå en tur lige nu.';
     }
   } else if (currentPlanet === 'spireplaneten') {
     if (choice === 'bowling' || choice === 'snakke') {
-      feedback = 'Perfekt! Susi nyder social energi og sjov.';
+      feedbackHeader = 'Perfekt!';
+      feedbackMessage = 'Susi nyder social energi og sjov.';
     } else {
-      feedback = 'Hmm… det var ikke lige det, hun havde lyst til.';
+      feedbackHeader = 'Hmm…';
+      feedbackMessage = 'Det var ikke lige det, hun havde lyst til.';
     }
   } else if (currentPlanet === 'powerboost') {
     if (choice === 'walk') {
-      feedback = 'Ja tak! Susi er sprængfyldt af energi og vil gerne ud!';
+      feedbackHeader = 'Ja tak!';
+      feedbackMessage = 'Susi er sprængfyldt af energi og vil gerne ud!';
     } else {
-      feedback = 'Det er fint, men hun vil hellere bevæge sig.';
+      feedbackHeader = 'Ikke helt.';
+      feedbackMessage = 'Det er fint, men hun vil hellere bevæge sig.';
     }
   } else if (currentPlanet === 'aegloesning') {
     if (choice === 'kys' || choice === 'bowling') {
-      feedback = 'Yes! Det topper lige humøret i dag.';
+      feedbackHeader = 'Yes!';
+      feedbackMessage = 'Det topper lige humøret i dag.';
     } else {
-      feedback = 'Det går, men noget mere sprudlende havde været bedre.';
+      feedbackHeader = 'Okay…';
+      feedbackMessage = 'Noget mere sprudlende havde været bedre.';
     }
   } else if (currentPlanet === 'pms') {
     if (choice === 'burger' || choice === 'alene') {
-      feedback = 'Godt valg! Lidt mad og ro hjælper.';
+      feedbackHeader = 'Godt valg!';
+      feedbackMessage = 'Lidt mad og ro hjælper.';
     } else {
-      feedback = 'Det hjælper ikke helt på PMS\'en.';
+      feedbackHeader = 'Måske ikke det bedste…';
+      feedbackMessage = 'Det hjælper ikke helt på PMS\'en.';
     }
   } else if (currentPlanet === 'skygge') {
     if (choice === 'varmepude' || choice === 'afslapning') {
-      feedback = 'Det hjælper lidt på humøret.';
+      feedbackHeader = 'Det hjælper.';
+      feedbackMessage = 'Det letter lidt på humøret.';
     } else {
-      feedback = 'En hund der gør er for meget i dag.';
+      feedbackHeader = 'Av…';
+      feedbackMessage = 'En hund der gør er for meget i dag.';
     }
   } else {
-    feedback = 'Vælg en planet først!';
+    feedbackHeader = 'Vælg en planet først!';
+    feedbackMessage = '';
   }
 
   if (correctAnswers.includes(choice)) {
@@ -163,7 +181,9 @@ const susiVideoSource = document.getElementById('susiVideoSource');
     susiVideo.play();
   };
 
-  document.getElementById('feedbackMessage').textContent = feedback;
+  feedbackHeaderEl.textContent = feedbackHeader;
+  feedbackMessageEl.textContent = feedbackMessage;
+
   showScreen('feedbackScreen');
 }
 
@@ -197,6 +217,7 @@ function returnToPlanets() {
     }
   });
 
+  
   const susiVideoSource = document.getElementById('susiVideoSource');
   const susiVideo = document.getElementById('susiVideo');
   susiVideoSource.src = '../images/susi-neutral.webm';
