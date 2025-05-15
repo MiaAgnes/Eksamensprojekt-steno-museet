@@ -32,7 +32,7 @@ function showScreen(screenId) {
 const planetInfo = {
   'bloodmoon': {
     title: 'Blodmånen',
-    description: 'Blodmånen markerer starten på Susis cyklus...',
+    description: 'Blodmånen markerer starten på Susis cyklus (dag 1–7). Her har hun menstruation og kan føle sig træt og følsom. Hjælp hende med at vælge det, der gør hende glad og komfortabel i denne fase!',
     image: '../images/blood-moon.webp',
     answers: [
       { text: "Chokolade", value: "chokolade", image: "../images/chokolade.webp" },
@@ -43,7 +43,7 @@ const planetInfo = {
   },
   'spireplaneten': {
     title: 'Spire Planeten',
-    description: 'Spireplaneten markerer dagene efter Susis menstruation...',
+    description: 'Spire Planeten markerer dagene efter Susis menstruation (dag 8–11). Hun begynder at få mere energi og føle sig lettere tilpas. Hjælp hende med at vælge det, der støtter hendes spirende humør og lyst til at komme i gang igen!',
     image: '../images/spire-planet.webp',
     answers: [
       { text: "Bowling", value: "bowling", image: "../images/bowling.webp" },
@@ -54,7 +54,7 @@ const planetInfo = {
   },
   'powerboost': {
     title: 'Power Boost Planeten',
-    description: 'Power Boost Planeten markerer dagene...',
+    description: 'Power Boost Planeten markerer dagene, hvor Susis energi topper (dag 12–13). Hun føler sig stærk, udadvendt og klar på det hele! Hjælp hende med at vælge det, der matcher hendes power og drive i denne fase.',
     image: '../images/power-boost.webp',
     answers: [
       { text: "Gaming", value: "gaming", image: "../images/computer.webp" },
@@ -65,7 +65,7 @@ const planetInfo = {
   },
   'aegloesning': {
     title: 'Ægløsnings Planeten',
-    description: 'Ægløsningsplaneten markerer midten af Susis cyklus...',
+    description: 'Ægløsnings Planeten markerer midten af Susis cyklus (dag 14–15). Hun føler sig energisk, glad og ekstra sprudlende. Hjælp hende med at vælge det, der får hende til at skinne endnu mere i denne fase!',
     image: '../images/ovulation-planet.webp',
     answers: [
       { text: "Kys", value: "kys", image: "../images/kys.webp" },
@@ -76,7 +76,7 @@ const planetInfo = {
   },
   'pms': {
     title: 'PMS Øen',
-    description: 'PMS-øen markerer dagene op til Susis menstruation...',
+    description: 'PMS Øen markerer dagene op til Susis menstruation (dag 16–25). Hun kan føle sig irritabel, træt eller trist, men kan have lyst til lækkert mad, lidt kærlig omsorg og lidt stille tid. Hjælp hende med at vælge det, der kan løfte hendes humør i denne fase!',
     image: '../images/pms-island.webp',
     answers: [
       { text: "Trist video", value: "video", image: "../images/phone.webp" },
@@ -87,7 +87,7 @@ const planetInfo = {
   },
   'skygge': {
     title: 'Skygge Planeten',
-    description: 'Skyggeplaneten markerer de sidste dage i Susis cyklus...',
+    description: 'Skygge Planeten markerer de sidste dage i Susis cyklus (dag 26–28). Hun føler sig tung, træt og har brug for at trække sig lidt tilbage. Hjælp hende med at vælge det, der giver ro og tryghed i denne fase.',
     image: '../images/shadow-planet.webp',
     answers: [
       { text: "Varmepude", value: "varmepude", image: "../images/varmepude.webp" },
@@ -96,6 +96,15 @@ const planetInfo = {
     ],
     correctAnswer: ["varmepude", "afslapning"]
   }
+};
+
+const feedbackText = {
+  'bloodmoon': 'På Blodmånen har Susi mest lyst til chokolade og te – det trøster og varmer. Hun er træt og har brug for ro, så en tur må vente til senere i cyklussen.',
+  'spireplaneten': 'På Spireplaneten elsker Susi at lege og grine med sine venner. Hun vil slet ikke sove, for der er alt for meget sjov at lave!',
+  'powerboost': 'På Powerboost-planeten får Susi masser af energi! Hun vil hellere gå og bevæge sig, end at sidde stille og se tv.',
+  'aegloesning': 'På Ægløsnings Planeten er Susi fuld af energi og lidt flirtende. Hun vil hellere bowle, lege og måske give et lille kys end at sidde stille og slappe af.',
+  'pms': 'På PMS Øen har Susi mest lyst til en kæmpe burger og lidt alene-tid. Hun gider ikke triste TikTok-videoer, men vil bare hygge sig i fred.',
+  'skygge': 'På Skygge Planeten vil Susi bare slappe af med en varmepude og ro omkring sig. Ingen hunde der gør, tak!'
 };
 
 function choosePlanet(planet) {
@@ -152,7 +161,7 @@ function handleChoice(choice) {
     susiVideoSource.src = '../images/susi-sur.webm';
   }
 
-  feedbackMessage = planetInfo[currentPlanet]?.description || "";
+  feedbackMessage = feedbackText[currentPlanet] || "";
 
   susiVideo.load();
   susiVideo.onloadeddata = () => susiVideo.play();
