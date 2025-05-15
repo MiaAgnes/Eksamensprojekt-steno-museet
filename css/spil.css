@@ -211,6 +211,22 @@
     object-fit: cover;
   }
 
+
+  #restart-button{
+    background-image: url('../images/grainy-background.webp');
+    background-size: cover;
+    border: none;
+    height: 75px;
+    width: 250px;
+    font-size: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #efb99c;
+    border-radius: 15px;
+    color: #4b003b;
+  }
+  
+
   @keyframes pulse {
     0%, 100% {
         transform: scale(1);
