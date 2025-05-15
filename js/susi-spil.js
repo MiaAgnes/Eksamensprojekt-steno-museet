@@ -214,10 +214,10 @@ function returnToPlanets() {
       cutsceneVideo.play();
     }
   
-    // Vent samme længde som videoens varighed
+  
     setTimeout(() => {
       window.location.href = '../html/end.html';
-    }, 46000); // 20 sekunder (justér til videoens længde)
+    }, 46000); 
   
     return;
   }

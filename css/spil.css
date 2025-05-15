@@ -183,6 +183,38 @@
     margin-top: 5rem;
 }
 
+#cutsceneScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black; 
+    z-index: 9999; 
+  }
+  
+  #cutsceneScreen video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  #restart-button{
+    background-image: url('../images/grainy-background.webp');
+    background-size: cover;
+    border: none;
+    height: 75px;
+    width: 250px;
+    font-size: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #efb99c;
+    border-radius: 15px;
+    color: #4b003b;
+  }
+  
+
+
   @keyframes pulse {
     0%, 100% {
         transform: scale(1);
