@@ -234,13 +234,13 @@ function updatePlanetLockState() {
 
     if (planetIndex < currentPlanetIndex) {
       planetEl.style.pointerEvents = "none";
-      planetEl.style.opacity = "1";
+      planetEl.style.opacity = "0.7";
     } else if (planetIndex === currentPlanetIndex) {
       planetEl.style.pointerEvents = "auto";
       planetEl.style.opacity = "1";
     } else {
       planetEl.style.pointerEvents = "none";
-      planetEl.style.opacity = "1";
+      planetEl.style.opacity = "0.4";
     }
   });
 }
