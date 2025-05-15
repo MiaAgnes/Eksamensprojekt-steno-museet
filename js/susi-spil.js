@@ -1,14 +1,16 @@
 "use strict"
 
 let currentPlanet = '';
+let completedPlanets = new Set();
+
+const planetOrder = ['bloodmoon', 'spireplaneten', 'powerboost', 'aegloesning', 'pms', 'skygge'];
 
 function showScreen(screenId) {
   document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
   document.getElementById(screenId).classList.add('active');
-  if(screenId === "actionScreen")
-  {
+  if (screenId === "actionScreen") {
     updateChoices();
-  }  
+  }
 }
 
 const planetInfo = {
@@ -80,44 +82,27 @@ const planetInfo = {
   }
 };
 
-let indexCounter = 0;
-
 function choosePlanet(planet) {
   currentPlanet = planet;
 
-  const questionImage = document.querySelectorAll(".question-image");
+  const currentIndex = planetOrder.indexOf(planet);
+  const nextAllowedIndex = completedPlanets.size;
 
-  function updateImage() {
-    questionImage.forEach(image => {
-      image.src = planetInfo[currentPlanet].image;
-    });
+  if (currentIndex > nextAllowedIndex) {
+    alert("Du skal tage planeterne i rækkefølge!");
+    return;
   }
 
   if (planetInfo[planet]) {
     document.getElementById('planetTitle').textContent = planetInfo[planet].title;
     document.getElementById('planetDescription').textContent = planetInfo[planet].description;
-    updateImage(); 
-  } else {
-    document.getElementById('planetTitle').textContent = 'Ukendt planet';
-    document.getElementById('planetDescription').textContent = 'Der er ikke nogen beskrivelse for denne planet.';
+
+    document.querySelectorAll(".question-image").forEach(image => {
+      image.src = planetInfo[planet].image;
+    });
+
+    showScreen('planetInfoScreen');
   }
-
-  // Skift planetens billede til gråt og fjern klikbarhed
-  const planetElement = document.querySelector(`.planet[data-planet="${planet}"]`);
-  if (planetElement) {
-    const imgElement = planetElement.querySelector('img');
-    const grayImage = planetElement.getAttribute('data-gray');
-    if (imgElement && grayImage) {
-      imgElement.src = grayImage;
-    }
-
-    // Fjern klikfunktion og cursor
-    planetElement.onclick = null;
-    planetElement.style.cursor = 'default';
-    planetElement.classList.add('done'); // hvis du vil style brugte planeter i CSS
-  }
-
-  showScreen('planetInfoScreen');
 }
 
 function handleChoice(choice) {
@@ -128,75 +113,24 @@ function handleChoice(choice) {
 
   const correctAnswers = planetInfo[currentPlanet]?.correctAnswer || [];
 
-  let feedbackHeader = '';
-  let feedbackMessage = '';
-
-  if (currentPlanet === 'bloodmoon') {
-    if (choice === 'chokolade' || choice === 'te') {
-      feedbackHeader = 'Susi blev glad!';
-      feedbackMessage = 'På Blodmånen har Susi mest lyst til chokolade og te – det trøster og varmer. Hun er træt og har brug for ro, så en tur må vente til senere i cyklussen.';
-    } else {
-      feedbackHeader = 'Susi blev sur!';
-      feedbackMessage = 'På Blodmånen har Susi mest lyst til chokolade og te – det trøster og varmer. Hun er træt og har brug for ro, så en tur må vente til senere i cyklussen.';
-    }
-  } else if (currentPlanet === 'spireplaneten') {
-    if (choice === 'bowling' || choice === 'snakke') {
-      feedbackHeader = 'Susi blev glad!';
-      feedbackMessage = 'På Spireplaneten elsker Susi at lege og grine med sine venner. Hun vil slet ikke sove, for der er alt for meget sjov at lave!';
-    } else {
-      feedbackHeader = 'Susi blev sur!';
-      feedbackMessage = 'På Spireplaneten elsker Susi at lege og grine med sine venner. Hun vil slet ikke sove, for der er alt for meget sjov at lave!';
-    }
-  } else if (currentPlanet === 'powerboost') {
-    if (choice === 'walk') {
-      feedbackHeader = 'Susi blev glad!';
-      feedbackMessage = 'På Powerboost-planeten får Susi masser af energi! Hun vil hellere gå og bevæge sig, end at sidde stille og se tv.';
-    } else {
-      feedbackHeader = 'Susi blev sur!';
-      feedbackMessage = 'På Powerboost-planeten får Susi masser af energi! Hun vil hellere gå og bevæge sig, end at sidde stille og se tv.';
-    }
-  } else if (currentPlanet === 'aegloesning') {
-    if (choice === 'kys' || choice === 'bowling') {
-      feedbackHeader = 'Susi blev glad!';
-      feedbackMessage = 'På Ægløsnings Planeten Susi fuld af energi og lidt flirtende. Hun vil hellere bowle, lege og måske give et lille kys end at sidde stille og slappe af.';
-    } else {
-      feedbackHeader = 'Susi blev sur!';
-      feedbackMessage = 'På Ægløsnings Planeten Susi fuld af energi og lidt flirtende. Hun vil hellere bowle, lege og måske give et lille kys end at sidde stille og slappe af.';
-    }
-  } else if (currentPlanet === 'pms') {
-    if (choice === 'burger' || choice === 'alene') {
-      feedbackHeader = 'Susi blev glad!';
-      feedbackMessage = 'På PMS Øen har Susi mest lyst til en kæmpe burger og lidt alene-tid. Hun gider ikke triste TikTok-videoer, men vil bare hygge sig i fred.';
-    } else {
-      feedbackHeader = 'Susi blev sur!';
-      feedbackMessage = 'På PMS Øen har Susi mest lyst til en kæmpe burger og lidt alene-tid. Hun gider ikke triste TikTok-videoer, men vil bare hygge sig i fred.';
-    }
-  } else if (currentPlanet === 'skygge') {
-    if (choice === 'varmepude' || choice === 'afslapning') {
-      feedbackHeader = 'Susi blev glad!';
-      feedbackMessage = 'På Skygge Planeten vil Susi bare slappe af med en varmepude og ro omkring sig. Ingen hunde der gør, tak!';
-    } else {
-      feedbackHeader = 'Susi blev sur!';
-      feedbackMessage = 'På Skygge Planeten vil Susi bare slappe af med en varmepude og ro omkring sig. Ingen hunde der gør, tak!';
-    }
-  } else {
-    feedbackHeader = 'Vælg en planet først!';
-  }
-
-  if (correctAnswers.includes(choice)) {
-    susiVideoSource.src = '../images/susi-glad.webm';
-  } else {
-    susiVideoSource.src = '../images/susi-sur.webm';
-  }
-
-  console.log("Video source is now:", susiVideoSource.src);
-  susiVideo.load(); 
-  susiVideo.onloadeddata = () => {
-    susiVideo.play();
+  const isCorrect = correctAnswers.includes(choice);
+  const glad = 'Susi blev glad!';
+  const sur = 'Susi blev sur!';
+  const feedbackText = {
+    'bloodmoon': 'På Blodmånen har Susi mest lyst til chokolade og te – det trøster og varmer. Hun er træt og har brug for ro, så en tur må vente til senere i cyklussen.',
+    'spireplaneten': 'På Spireplaneten elsker Susi at lege og grine med sine venner. Hun vil slet ikke sove, for der er alt for meget sjov at lave!',
+    'powerboost': 'På Powerboost-planeten får Susi masser af energi! Hun vil hellere gå og bevæge sig, end at sidde stille og se tv.',
+    'aegloesning': 'På Ægløsnings Planeten Susi fuld af energi og lidt flirtende. Hun vil hellere bowle, lege og måske give et lille kys end at sidde stille og slappe af.',
+    'pms': 'På PMS Øen har Susi mest lyst til en kæmpe burger og lidt alene-tid. Hun gider ikke triste TikTok-videoer, men vil bare hygge sig i fred.',
+    'skygge': 'På Skygge Planeten vil Susi bare slappe af med en varmepude og ro omkring sig. Ingen hunde der gør, tak!'
   };
 
-  feedbackHeaderEl.textContent = feedbackHeader;
-  feedbackMessageEl.textContent = feedbackMessage;
+  feedbackHeaderEl.textContent = isCorrect ? glad : sur;
+  feedbackMessageEl.textContent = feedbackText[currentPlanet] || "";
+
+  susiVideoSource.src = isCorrect ? '../images/susi-glad.webm' : '../images/susi-sur.webm';
+  susiVideo.load();
+  susiVideo.onloadeddata = () => susiVideo.play();
 
   showScreen('feedbackScreen');
 }
@@ -204,12 +138,12 @@ function handleChoice(choice) {
 function updateChoices() {
   const choices = planetInfo[currentPlanet].answers;
   const actionButtons = document.getElementById('actionButtons');
-  actionButtons.innerHTML = ""; 
+  actionButtons.innerHTML = "";
 
   choices.forEach(choice => {
     const button = document.createElement("button");
     button.className = "choice-button";
-    button.innerHTML = choice.text
+    button.innerHTML = choice.text;
 
     const image = document.createElement("img");
     image.src = choice.image;
@@ -220,23 +154,27 @@ function updateChoices() {
     button.onclick = () => handleChoice(choice.value);
     actionButtons.appendChild(button);
   });
-};
+}
 
 function returnToPlanets() {
-  const planets = document.querySelectorAll('.planet');
-  planets.forEach(p => {
-    if (p.dataset.planet === currentPlanet) {
-      p.classList.add('done');
-      p.onclick = null;
-    }
-  });
+  completedPlanets.add(currentPlanet);
 
-  
+  const planetElement = document.querySelector(`.planet[data-planet="${currentPlanet}"]`);
+  if (planetElement) {
+    planetElement.classList.add('done');
+    planetElement.onclick = null;
+    planetElement.style.opacity = "0.5";
+  }
+
   const susiVideoSource = document.getElementById('susiVideoSource');
   const susiVideo = document.getElementById('susiVideo');
   susiVideoSource.src = '../images/susi-neutral.webm';
   susiVideo.load();
   susiVideo.play();
 
-  showScreen('planetScreen');
+  if (completedPlanets.size === planetOrder.length) {
+    showScreen('cutsceneScreen'); // vis cutscene efter sidste planet
+  } else {
+    showScreen('planetScreen');
+  }
 }
