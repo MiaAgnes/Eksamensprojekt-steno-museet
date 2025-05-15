@@ -195,6 +195,22 @@
     margin-left: 20rem;
   }
 
+  #cutsceneScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black; 
+    z-index: 9999; 
+  }
+  
+  #cutsceneScreen video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
   @keyframes pulse {
     0%, 100% {
         transform: scale(1);
