@@ -35,7 +35,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -3rem;
 }
 
 .planet {
@@ -86,6 +85,7 @@
 
 .done {
     text-decoration: line-through;
+    background: #ccc;
     cursor: not-allowed;
 }
 
@@ -162,70 +162,6 @@
     max-width: 550px; 
     height: auto; 
   }
-
-  .susi-cyklus-spil2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .susi-cyklus-spil2 button {
-    margin-top: 50rem;
-  }
-  
-  .susi-cyklus-spil2 video {
-    width: 40%; 
-    max-width: 550px; 
-    height: auto; 
-  }
-
-  #feedbackMessage {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.75em 4em 0 4em;
-    font-size: 25px;
-    font-weight: normal;
-    color: #590051;
-    margin-top: 7rem;
-    margin-bottom: 5rem;
-    margin-right: 20rem;
-    margin-left: 20rem;
-  }
-
-  #cutsceneScreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: black; 
-    z-index: 9999; 
-  }
-  
-  #cutsceneScreen video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-  }
-
-
-  #restart-button{
-    background-image: url('../images/grainy-background.webp');
-    background-size: cover;
-    border: none;
-    height: 75px;
-    width: 250px;
-    font-size: 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 2px solid #efb99c;
-    border-radius: 15px;
-    color: #4b003b;
-  }
-  
 
   @keyframes pulse {
     0%, 100% {
