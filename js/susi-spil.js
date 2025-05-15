@@ -13,8 +13,17 @@ const planetOrder = [
 ];
 
 function showScreen(screenId) {
+  // Stop cutscene-videoen, hvis vi forlader skærmen
+  const cutsceneVideo = document.getElementById('cutsceneVideo');
+  if (cutsceneVideo && screenId !== 'cutsceneScreen') {
+    cutsceneVideo.pause();
+    cutsceneVideo.currentTime = 0;
+  }
+
+  // Skift aktiv skærm
   document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
   document.getElementById(screenId).classList.add('active');
+
   if (screenId === "actionScreen") {
     updateChoices();
   }
