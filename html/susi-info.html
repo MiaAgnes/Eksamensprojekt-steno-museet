@@ -10,14 +10,25 @@
     <h1 class="overskrift">Velkommen til monsteret Susi-Cyklus spillet</h1>
     <h2 class="tekst">I Susi-Cyklus spillet skal du hjælpe monsteret Susi gennem sin menstruationscyklus. Find ud af, hvordan hun har det i de forskellige faser, og giv hende det, hun har brug for i den rigtige situation. Lær om kroppen, humør og energi undervejs i spillet!</h2>
 
+    <audio id="voiceAudio" autoplay>
+        <source src="../images/mens-marie-spil.mp3" type="audio/mpeg">
+        Din browser understøtter ikke lydafspilleren.
+      </audio>
+
     <section class="susi-cyklus">
+        <video id="marie" autoplay loop muted>
+          <source src="../images/mens-marie.webm" type="video/webm">
+        </video>
         <video autoplay loop muted>
-            <source src="../images/susi-wave.webm" type="video/webm">
-          </video>
-    </section>
+          <source src="../images/susi-wave.webm" type="video/webm">
+        </video>
+      </section>
 
     <a href="susi-spil.html">
     <button class="image-btn">Start</button>
     </a>
+
+    <script src="../js/mens-marie-tale.js"></script>
+
 </body>
 </html>
