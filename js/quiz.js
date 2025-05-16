@@ -155,3 +155,6 @@ function restartQuiz() {
 
 // Start quizzen
 window.onload = showQuestion;
+
+
+

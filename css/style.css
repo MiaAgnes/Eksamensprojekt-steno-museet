@@ -131,6 +131,31 @@ a{
   animation: float 3s ease-in-out infinite;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(100px);
+  background-image: url('../images/grainy-background.webp'); /* evt. lav et blurret billede */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  color: #4b003b;
+  font-size: 3.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Skjuler elementer */
+.hidden {
+  display: none;
+}
+
 @keyframes float {
     0%   { transform: translateY(0); }
     50%  { transform: translateY(-15px); }

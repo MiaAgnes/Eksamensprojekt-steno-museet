@@ -1,3 +1,5 @@
+"use strict"
+
 (function() {
     // Alle kendte audio element IDs for dine sider
     const possibleAudioIds = ['voiceAudioStart', 'voiceAudioQuiz', 'voiceAudioSpil'];
@@ -19,5 +21,6 @@
     document.addEventListener("DOMContentLoaded", playFirstAvailableAudio);
     window.addEventListener("pageshow", playFirstAvailableAudio);
   })();
+
   
   
