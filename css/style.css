@@ -12,6 +12,7 @@
     min-height: 100vh;
     overflow: hidden;
     position: relative;
+    font-family: 'Fredoka', sans-serif;
 }
 
 h1{
@@ -31,6 +32,7 @@ h2{
     font-size: 25px;
     font-weight: normal;
     color: #590051;
+    font-family: sans-serif;
 }
 
 .mens-marie {
@@ -59,6 +61,7 @@ h2{
     cursor: pointer;
     display: block;
     margin: auto;
+    font-family: 'Fredoka';
   }
 
 a{
