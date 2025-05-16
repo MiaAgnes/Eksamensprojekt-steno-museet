@@ -216,7 +216,7 @@ function returnToPlanets() {
   
   
     setTimeout(() => {
-      window.location.href = '../html/end.html';
+      window.location.href = '../html/end-spil.html';
     }, 46000); 
   
     return;
