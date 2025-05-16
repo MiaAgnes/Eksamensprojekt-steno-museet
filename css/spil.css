@@ -113,11 +113,12 @@
 #planetTitle {
     margin-top: 25px;
     margin-bottom: -30px;
+    font-weight: 550;
 }
 
 .action-overskrift{
     font-size: 50px;
-    font-weight: bold;
+    font-weight: 550;
 }
 
 .actionButtons{

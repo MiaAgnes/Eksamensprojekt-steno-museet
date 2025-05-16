@@ -36,7 +36,7 @@
     display: flex;
     justify-content: center;
     font-size: 50px;
-    font-weight: bold;
+    font-weight: 550;
     color: #4b003b;
   }
   
@@ -94,7 +94,6 @@
   }
 
   #feedback-section {
-    
     flex-direction: column; 
     align-items: center;   
     justify-content: center; 
@@ -106,7 +105,7 @@
     text-align: center;
     font-size: 70px;
     color: #4b003b;
-    font-weight: bold;
+    font-weight: 550;
     margin-top: 200px;
 }
 
@@ -140,7 +139,7 @@
     text-align: center;
     justify-content: center;
     font-size: 50px;
-    font-weight: bold;
+    font-weight: 550;
     color: #4b003b;
     margin-top: 250px;
     margin-bottom: 20px;
