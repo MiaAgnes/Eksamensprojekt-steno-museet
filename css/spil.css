@@ -4,6 +4,7 @@
     box-sizing: border-box;
   }
 
+  /* Styling af hele siden */
   body {
     background-image: url('../images/grainy-background.webp'); 
     background-size: cover;
@@ -14,6 +15,7 @@
     position: relative;
 }
 
+/* Styling af Susi */
 .susi-cyklus{
     display: flex;
     justify-content: center;
@@ -27,6 +29,7 @@
     height: auto; 
   }
   
+  /* Container til planeter i en cirkel */
 .planet-circle {
     position: relative;
     width: 300px;
@@ -37,6 +40,7 @@
     align-items: center;
 }
 
+/* Styling af hver planet-element */
 .planet {
     position: absolute;
     width: 85px;
@@ -49,6 +53,7 @@
     margin-bottom: 510px;
 }
 
+/* Styling af planet-billeder med puls-animation */
 .planet img {
     width: 75%;
     height: 75%;
@@ -56,6 +61,7 @@
     animation: pulse 2s ease-in-out infinite;
 }
 
+/* Individuel placering og rotation af hver planet */
 .planet:nth-child(1) {
     transform: rotate(-50deg) translateX(500px) scale(5) rotate(40deg); 
 }
@@ -75,19 +81,23 @@
     transform: rotate(230deg) translateX(500px) scale(5) rotate(-225deg);
 }
 
+/* Skjuler elementer */
 .screen {
     display: none;
 }
 
+/* Viser elementer med class active */
 .active {
     display: block;
 }
 
+/* Styling til når noget er udført */
 .done {
     text-decoration: line-through;
     cursor: not-allowed;
 }
 
+/* Container til planet-animation i baggrunden */
 .planet-container {
     display: flex;
     justify-content: center;
@@ -96,6 +106,7 @@
     z-index: -1;
 }
 
+/* Styling af billede i planet-container med float-animation */
 .planet-container img {
     width: 100%; 
     max-width: 600px; 
@@ -103,6 +114,7 @@
     animation: float 3s ease-in-out infinite;
 }
 
+/* Styling af beskrivelses-tekst til planeter */
 #planetDescription {
     margin-top: -50px;
     margin-bottom: 50px;
@@ -110,16 +122,19 @@
     margin-right: 200px;
 }
 
+/* Styling af planetens titel */
 #planetTitle {
     margin-top: 25px;
     margin-bottom: -30px;
 }
 
+/* Styling af overskrifter i actions */
 .action-overskrift{
     font-size: 50px;
     font-weight: bold;
 }
 
+/* Container til valg-knapper */
 .actionButtons{
     display: flex;
     justify-content: center;
@@ -128,6 +143,7 @@
     height: 700px;
 }
 
+/* Styling af valg-knapper */
 .choice-button {
     display: flex;
     flex-direction: column-reverse;
@@ -137,6 +153,7 @@
     font-size: 25px;
 }
 
+/* Styling af billeder i valg-knapper */
 .choice-image {
     width: 200px;
     height: 200px;
@@ -144,10 +161,12 @@
     transition: transform 0.3s;
 }
 
+/* Hover-effekt på valg-billeder */
 .choice-button:hover .choice-image {
     transform: scale(1.05);
 }
 
+/* Styling af video i spil-layout */
 .susi-cyklus-spil {
     display: flex;
     justify-content: center;
@@ -162,11 +181,12 @@
     height: auto; 
   }
 
+  /* Layout til anden spilsektion med tekst og video */
   .susi-cyklus-spil2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* fordeler elementer vertikalt */
+    justify-content: space-between; 
     text-align: center;
   }
 
@@ -176,6 +196,7 @@
         height: auto; 
     }
 
+    /* Styling af feedback-besked */
 #feedbackMessage {
     margin-bottom: 7rem;
     margin-left: 15rem;
@@ -183,6 +204,7 @@
     margin-top: 5rem;
 }
 
+/* Cutscene-overlay over hele skærmen */
 #cutsceneScreen {
     position: fixed;
     top: 0;
@@ -199,6 +221,7 @@
     object-fit: cover;
   }
 
+  /* Styling af restart-knap */
   #restart-button{
     background-image: url('../images/grainy-background.webp');
     background-size: cover;
@@ -212,9 +235,8 @@
     border-radius: 15px;
     color: #4b003b;
   }
-  
 
-
+/* Animation til puls-effekt */
   @keyframes pulse {
     0%, 100% {
         transform: scale(1);

@@ -59,6 +59,7 @@
         </section>
       </section>
 
+         <!-- Beskrivende blodmåne - Bliver ændret til andre planeter i js -->
   <section id="planetInfoScreen" class="screen">
     <section id="quiz-section" class="visible">
       <h1 id="planetTitle">Blodmånen</h1>
@@ -70,8 +71,8 @@
   </section>
   </section>
 
+  <!-- Skærm med, hvad man skal give Susi -->
   <section id="actionScreen" class="screen">
-    
     <h2 class="action-overskrift">Hvad skal Susi have?</h2>
 
     <section class="susi-cyklus-spil">
@@ -83,6 +84,7 @@
     <aside id="actionButtons" class="actionButtons"></aside>
   </section>
 
+  <!-- Feedback for om Susi bliver sur eller glad -->
   <section id="feedbackScreen" class="screen">
     <h1 id="feedbackHeader"></h1>
     <section class="susi-cyklus-spil2">
@@ -94,13 +96,15 @@
     <button onclick="returnToPlanets()" class="image-btn">Fortsæt</button>
   </section>
 
+  <!-- Animatic, der afspiller til sidst i Susi-spillet -->
   <section id="cutsceneScreen" class="screen">
-    <video controls>
+    <video id="cutsceneVideo" controls>
       <source src="../images/susi-cyklus.webm" type="video/webm">
       Din browser understøtter ikke video.
     </video>
   </section>
 
+   <!-- JavaScript -->
   <script src="../js/susi-spil.js"></script>
 </body>
 </html>

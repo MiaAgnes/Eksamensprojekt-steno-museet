@@ -4,6 +4,7 @@
     box-sizing: border-box;
   }
 
+    /* Styling af hele siden */
   body {
     background-image: url('../images/grainy-background.webp'); 
     background-size: cover;
@@ -14,6 +15,7 @@
     position: relative;
 }
   
+/* Styling af sektioner, skjules som udgangspunkt og centreres */
   section {
     padding-top: 50px;
     max-width: 1500px;
@@ -31,7 +33,7 @@
     display: none;
 }
 
-  /* Spørgsmål */
+/* Spørgsmålsnummer styling */
   #question-number {
     display: flex;
     justify-content: center;
@@ -40,6 +42,7 @@
     color: #4b003b;
   }
   
+  /* Spørgsmålstekst styling */
   #question-text {
     display: flex;
     justify-content: center;
@@ -49,13 +52,14 @@
     font-weight: normal;
   }
 
+  /* Container til kalender billedet */
   .kalender-container {
     display: flex;
     flex-direction: row;
     gap: 900px;
     margin-left: 25px;
     padding-top: 175px;
-    width: 35%;         /* eller fx 300px hvis du vil styre det mere */
+    width: 35%;         
   }
 
   .kalender-container img{
@@ -74,11 +78,11 @@
   
   /* Svar-knapper */
   .answer-button {
-    background-image: url('../images/grainy-background.webp'); /* skift til din sti */
+    background-image: url('../images/grainy-background.webp'); 
     background-size: cover;
     color: #590051;
-    width: 350px;       /* Ens bredde */
-    height: 90px;       /* Ens højde */
+    width: 350px;       
+    height: 90px;       
     padding: 0;   
     border: 2px solid #efb99c;
     border-radius: 15px;
@@ -93,8 +97,8 @@
     transform: translateY(-2px);
   }
 
+  /* Feedback-section styling */
   #feedback-section {
-    
     flex-direction: column; 
     align-items: center;   
     justify-content: center; 
@@ -114,12 +118,13 @@
     text-align: center;
     font-size: 30px;
     max-width: 1000px;
-    margin: 20px auto; /* Automatisk centreret */
+    margin: 20px auto; 
     color: #4b003b;
     line-height: 1.4;
 }
 
   
+/* Generel button-styling */
   button {
     background-image: url('../images/grainy-background.webp');
     background-size: cover;
@@ -135,6 +140,7 @@
     border-radius: 15px;
   }
 
+  /* Slutscore styling */
   #final-score {
     display: grid;
     place-items: center;
@@ -145,6 +151,7 @@
     margin-bottom: 10px;
   }
 
+  /* Tekst til slutscore */
   .final-score-tekst{
     display: grid;
     place-items: center;
@@ -155,15 +162,16 @@
     font-weight: normal;
   }
 
+  /* Container til genstartsknapper */
   .restart-button-container{
     display: grid;
-    grid-template-columns: repeat(2, auto); /* To kolonner til knapperne */
-    gap: 20px; /* Afstand mellem knapperne */
-    justify-content: center; /* Centrerer knapperne vandret */
-    align-items: center; /* Centrerer knapperne lodret */
+    grid-template-columns: repeat(2, auto); 
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center; 
     
   }
-
+/* Genstart-knap styling */
   #restart-button{
     background-image: url('../images/grainy-background.webp');
     background-size: cover;
@@ -178,6 +186,7 @@
     color: #4b003b;
   }
 
+  /* Infografik billede */
   .infographic {
     display: flex;
     justify-content: center;
@@ -189,6 +198,38 @@
   height: auto; 
 }
 
+/* Pop-up */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 10%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Animation */
   @keyframes float {
     0%   { transform: translateY(0); }
     50%  { transform: translateY(-15px); }

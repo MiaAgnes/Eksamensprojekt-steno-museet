@@ -1,8 +1,10 @@
 "use strict"
 
+// Variabler til at holde styr på den aktuelle planet og dens rækkefølge
 let currentPlanet = '';
 let currentPlanetIndex = 0;
 
+// Definer rækkefølgen på planeterne i spillet
 const planetOrder = [
   'bloodmoon',
   'spireplaneten',
@@ -12,23 +14,27 @@ const planetOrder = [
   'skygge'
 ];
 
+// Funktion der viser den ønskede skærm (ved at ændre CSS-klasser)
 function showScreen(screenId) {
-  // Stop cutscene-videoen, hvis vi forlader skærmen
+
   const cutsceneVideo = document.getElementById('cutsceneVideo');
   if (cutsceneVideo && screenId !== 'cutsceneScreen') {
     cutsceneVideo.pause();
     cutsceneVideo.currentTime = 0;
   }
 
-  // Skift aktiv skærm
+  // Skift aktiv skærm: fjern 'active' fra alle skærme
   document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+  // Tilføj 'active' til den valgte skærm
   document.getElementById(screenId).classList.add('active');
 
+   // Hvis det er actionskærmen, opdater valgmulighederne
   if (screenId === "actionScreen") {
     updateChoices();
   }
 }
 
+// Objekter med info om hver planet i spillet: titel, tekst, billede, svarmuligheder og korrekte svar
 const planetInfo = {
   'bloodmoon': {
     title: 'Blodmånen',
@@ -41,6 +47,7 @@ const planetInfo = {
     ],
     correctAnswer: ["chokolade", "te"]
   },
+   // ... resten af planeterne samme format
   'spireplaneten': {
     title: 'Spire Planeten',
     description: 'Spire Planeten markerer dagene efter Susis menstruation (dag 8–11). Hun begynder at få mere energi og føle sig lettere tilpas. Hjælp hende med at vælge det, der støtter hendes spirende humør og lyst til at komme i gang igen!',
@@ -98,6 +105,7 @@ const planetInfo = {
   }
 };
 
+// Feedback-tekster der vises efter hvert valg på en planet
 const feedbackText = {
   'bloodmoon': 'På Blodmånen har Susi mest lyst til chokolade og te – det trøster og varmer. Hun er træt og har brug for ro, så en tur må vente til senere i cyklussen.',
   'spireplaneten': 'På Spireplaneten elsker Susi at lege og grine med sine venner. Hun vil slet ikke sove, for der er alt for meget sjov at lave!',
@@ -107,9 +115,11 @@ const feedbackText = {
   'skygge': 'På Skygge Planeten vil Susi bare slappe af med en varmepude og ro omkring sig. Ingen hunde der gør, tak!'
 };
 
+// Funktion der vælger en planet, opdaterer info og viser info-skærmen
 function choosePlanet(planet) {
   currentPlanet = planet;
 
+    // Hent alle billeder til spørgsmålet og opdater til det aktuelle planet-billede
   const questionImage = document.querySelectorAll(".question-image");
 
   function updateImage() {
@@ -118,6 +128,7 @@ function choosePlanet(planet) {
     });
   }
 
+  // Hvis planeten findes, vis info — ellers vis fejlbesked
   if (planetInfo[planet]) {
     document.getElementById('planetTitle').textContent = planetInfo[planet].title;
     document.getElementById('planetDescription').textContent = planetInfo[planet].description;
@@ -127,6 +138,7 @@ function choosePlanet(planet) {
     document.getElementById('planetDescription').textContent = 'Der er ikke nogen beskrivelse for denne planet.';
   }
 
+ // Grå planet-billede ud og deaktiver klik
   const planetElement = document.querySelector(`.planet[data-planet="${planet}"]`);
   if (planetElement) {
     const imgElement = planetElement.querySelector('img');
@@ -138,21 +150,22 @@ function choosePlanet(planet) {
     planetElement.style.cursor = 'default';
     planetElement.classList.add('done');
   }
-
+  // Vis planets info skærm
   showScreen('planetInfoScreen');
 }
-
+// Funktion der håndterer brugerens valg af aktivitet på en planet
 function handleChoice(choice) {
+   // Find video- og tekst-elementer til feedback
   const susiVideo = document.getElementById('susiVideo-feedback');
   const susiVideoSource = document.getElementById('susiVideoSource');
   const feedbackHeaderEl = document.getElementById('feedbackHeader');
   const feedbackMessageEl = document.getElementById('feedbackMessage');
-
+ // Hent korrekte svar til den aktuelle planet
   const correctAnswers = planetInfo[currentPlanet]?.correctAnswer || [];
-
+  // Definer feedback-indhold
   let feedbackHeader = '';
   let feedbackMessage = '';
-
+// Tjek om brugerens valg er korrekt
   if (correctAnswers.includes(choice)) {
     feedbackHeader = 'Susi blev glad!';
     susiVideoSource.src = '../images/susi-glad.webm';
@@ -160,9 +173,9 @@ function handleChoice(choice) {
     feedbackHeader = 'Susi blev sur!';
     susiVideoSource.src = '../images/susi-sur.webm';
   }
-
+  // Feedback-besked
   feedbackMessage = feedbackText[currentPlanet] || "";
-
+// Afspil video og vis feedback
   susiVideo.load();
   susiVideo.onloadeddata = () => susiVideo.play();
 
@@ -171,12 +184,12 @@ function handleChoice(choice) {
 
   showScreen('feedbackScreen');
 }
-
+// Funktion der viser knapper med valgmuligheder til den aktuelle planet
 function updateChoices() {
   const choices = planetInfo[currentPlanet].answers;
   const actionButtons = document.getElementById('actionButtons');
   actionButtons.innerHTML = "";
-
+  // Opret en knap for hver valgmulighed
   choices.forEach(choice => {
     const button = document.createElement("button");
     button.className = "choice-button";
@@ -192,39 +205,42 @@ function updateChoices() {
     actionButtons.appendChild(button);
   });
 }
-
+// Funktion der returnerer til planet-oversigten efter feedback
 function returnToPlanets() {
   const susiVideoSource = document.getElementById('susiVideoSource');
   const susiVideo = document.getElementById('susiVideo');
   susiVideoSource.src = '../images/susi-neutral.webm';
   susiVideo.load();
   susiVideo.play();
-
+ // Gå til næste planet
   currentPlanetIndex++;
-
+ // Opdater planeternes låsetilstand og fremhæv den aktuelle planet
   updatePlanetLockState();
   updateActivePlanetHighlight();
 
-  if (currentPlanetIndex >= planetOrder.length) {
-    showScreen('cutsceneScreen');
-  
-    // Spil video manuelt
-    const cutsceneVideo = document.getElementById('cutsceneVideo');
-    if (cutsceneVideo) {
-      cutsceneVideo.play();
-    }
-  
-  
-    setTimeout(() => {
-      window.location.href = '../html/end.html';
-    }, 46000); 
-  
-    return;
+    // Hvis alle planeter er gennemført, vis cutscene
+ if (currentPlanetIndex >= planetOrder.length) {
+  showScreen('cutsceneScreen');
+
+  const cutsceneVideo = document.getElementById('cutsceneVideo');
+  if (cutsceneVideo) {
+       // Når video er færdig, send til slutskærm
+    cutsceneVideo.addEventListener('ended', () => {
+      window.location.href = '../html/end-spil.html';
+    });
+
+    // Start video automatisk hvis muligt
+    cutsceneVideo.play().catch((error) => {
+      console.log("Video kunne ikke afspilles automatisk:", error);
+    });
   }
+
+  return;
+}
 
   showScreen('planetScreen');
 }
-
+// Opdater hvilke planeter der er åbne (kan klikkes på) og hvilke der er låst
 function updatePlanetLockState() {
   const allPlanets = document.querySelectorAll(".planet");
 
@@ -244,7 +260,7 @@ function updatePlanetLockState() {
     }
   });
 }
-
+// Fremhæv den planet der er aktiv lige nu
 function updateActivePlanetHighlight() {
   document.querySelectorAll('.planet').forEach(p => p.classList.remove('active'));
 
@@ -256,12 +272,9 @@ function updateActivePlanetHighlight() {
   }
 }
 
-// Initial opstart
+// Initial opstart når siden er loadet
 document.addEventListener("DOMContentLoaded", () => {
   updatePlanetLockState();
   updateActivePlanetHighlight();
 });
 
-setTimeout(() => {
-  window.location.href = '../index.html';
-}, 10000); 

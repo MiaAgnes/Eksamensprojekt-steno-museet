@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
+<!-- Start skærmen på quizzen, der ændre sig med js -->
 <body>
     <section id="quiz-section" class="visible">
         <h1 id="question-number">Spørgsmål 1/10</h1>
@@ -24,26 +25,37 @@
         </section>
     </section>
     
-      <!-- Feedback -->
+      <!-- Feedback på ens svar -->
       <section id="feedback-section">
         <p id="feedback-message">Rigtigt!</p>
         <p id="feedback-info">Menstruationscyklussen varer typisk 28 dage, men det kan variere...</p>
         <button id="next-button">Fortsæt</button>
       </section>
     
-      <!-- Slutskærm -->
+      <!-- Slutskærmen, der viser hvor mange man har fået rigtigt -->
       <section id="result-section" class="visible">
         <h1 id="final-score">Du fik 0/10 rigtige</h1>
         <h2 class="final-score-tekst">Flot gået! Vi håber du er blevet klogere på menstruation og kvindekropen! Er du stadig nysgerrig? Så se her</h2>
+        
+        <!-- Infographic med klik -->
         <aside class="infographic">
-            <img src="../images/infographic.webp" alt="">
+          <img src="../images/infographic.webp" alt="Infographic" id="infographicThumbnail" style="cursor: pointer;">
         </aside>
+      
+        <!-- Infographic pop-up -->
+        <section id="popupModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="popupImage">
+        </section>
+      
+        <!-- Restart knappen, hvor man kan prøve quizzen igen eller gå tilbage til start -->
         <aside class="restart-button-container">
-        <button id="restart-button">Prøv igen</button>
-        <a href="../index.html"><button id="restart-button">Tilbage til start</button></a>
-    </aside>
+          <button id="restart-button">Prøv igen</button>
+          <a href="../index.html"><button id="restart-button">Tilbage til start</button></a>
+        </aside>
       </section>
 
+      <!-- JavaScript -->
       <script src="../js/quiz.js"></script>
 </body>
 </html>

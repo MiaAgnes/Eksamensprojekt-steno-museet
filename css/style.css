@@ -4,6 +4,7 @@
     box-sizing: border-box;
   }
 
+  /* Styling af hele siden */
   body {
     background-image: url('../images/grainy-background.webp'); 
     background-size: cover;
@@ -15,6 +16,7 @@
     font-family: 'Fredoka', sans-serif;
 }
 
+/* Styling af h1-overskrifter */
 h1{
     display: flex;
     justify-content: center;
@@ -23,6 +25,7 @@ h1{
     color: #590051;
 }
 
+/* Styling af h2-overskrifter */
 h2{
     text-align: center;
     display: flex;
@@ -35,6 +38,7 @@ h2{
     font-family: sans-serif;
 }
 
+/* Container til videoen med Marie */
 .mens-marie {
     display: flex;
     justify-content: center;
@@ -48,12 +52,13 @@ h2{
   animation: float 3s ease-in-out infinite;
 }
 
+/* Styling af knapper med baggrundsbillede */
 .image-btn {
-    background-image: url('../images/grainy-background.webp'); /* skift til din sti */
+    background-image: url('../images/grainy-background.webp'); 
     background-size: cover;
     color: #590051;
-    width: 200px;       /* Ens bredde */
-    height: 75px;       /* Ens højde */
+    width: 200px;       
+    height: 75px;       
     padding: 0;   
     border: 2px solid #efb99c;
     border-radius: 15px;
@@ -68,6 +73,7 @@ a{
     text-decoration: none;
 }
 
+/* Container til flere knapper, centreret midt på siden */
 .image-btn-container {
     display: flex;           
     justify-content: center;  
@@ -77,10 +83,11 @@ a{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centrer containeren */
+    transform: translate(-50%, -50%); 
     z-index: 1;
   }
 
+  /* Styling af billeder i quizzen med animation */
   .bind img,
   .kop img, .tampon img,
   .trusser img {
@@ -90,6 +97,7 @@ a{
     animation: float 3s ease-in-out infinite;
   }
 
+/* Placering af billeder i hver sin side */
 .bind-kop{
     position: absolute;
   display: flex;
@@ -117,6 +125,7 @@ a{
     z-index: 0;
 }
 
+/* Container til susi-cyklus video */
 .susi-cyklus{
     display: flex;
     justify-content: center;
@@ -130,10 +139,12 @@ a{
     margin-top: 20px;
   }
 
+  /* Animation til Marie-billedet */
 #marie{
   animation: float 3s ease-in-out infinite;
 }
 
+/* Overlay */
 .overlay {
   position: fixed;
   top: 0;
@@ -141,7 +152,7 @@ a{
   width: 100%;
   height: 100%;
   backdrop-filter: blur(100px);
-  background-image: url('../images/grainy-background.webp'); /* evt. lav et blurret billede */
+  background-image: url('../images/grainy-background.webp'); 
   background-size: cover;
   background-position: center;
   display: flex;
@@ -159,6 +170,7 @@ a{
   display: none;
 }
 
+/* Definerer animation til at få elementer til at svæve op og ned */
 @keyframes float {
     0%   { transform: translateY(0); }
     50%  { transform: translateY(-15px); }
