@@ -126,12 +126,13 @@
 #planetTitle {
     margin-top: 25px;
     margin-bottom: -30px;
+    font-weight: 550;
 }
 
 /* Styling af overskrifter i actions */
 .action-overskrift{
     font-size: 50px;
-    font-weight: bold;
+    font-weight: 550;
 }
 
 /* Container til valg-knapper */

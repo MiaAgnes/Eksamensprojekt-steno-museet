@@ -22,6 +22,7 @@ h1{
     justify-content: center;
     margin-top: 0.5em;
     font-size: 40px;
+    font-weight: 550;
     color: #590051;
 }
 
@@ -31,7 +32,7 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.75em 4em 0 4em;
+    margin: 15px 100px 0 100px;
     font-size: 25px;
     font-weight: normal;
     color: #590051;
@@ -99,7 +100,7 @@ a{
 
 /* Placering af billeder i hver sin side */
 .bind-kop{
-    position: absolute;
+  position: absolute;
   display: flex;
   flex-direction: row;
   gap: 45em;
