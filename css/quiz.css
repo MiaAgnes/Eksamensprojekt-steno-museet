@@ -18,6 +18,7 @@
 /* Styling af sektioner, skjules som udgangspunkt og centreres */
   section {
     padding-top: 50px;
+    margin-top: -50px;
     max-width: 1500px;
     margin: auto;
     display: none;
@@ -148,7 +149,6 @@
     font-size: 50px;
     font-weight: 550;
     color: #4b003b;
-    margin-top: 250px;
     margin-bottom: 20px;
   }
 
@@ -195,7 +195,7 @@
 }
 
 .infographic img {
-  width: 98%; 
+  width: 85%; 
   height: auto; 
 }
 
