@@ -50,7 +50,6 @@ const questions = [
         correct: 0,
         feedback: "Livmoderen sidder i underlivet mellem blæren og endetarmen.",
         image: "../images/livmoder.webp"
-
     },
     {
         question: "Hvorfor kan nogen føle sig mere kede af det eller vrede før deres menstruation?",
@@ -78,7 +77,7 @@ const questions = [
 let current = 0;
 let score = 0;
 
-// // Henter HTML-elementer og gemmer dem i variabler
+// Henter HTML-elementer
 const quizSection = document.getElementById("quiz-section");
 const feedbackSection = document.getElementById("feedback-section");
 const resultSection = document.getElementById("result-section");
@@ -87,32 +86,29 @@ const questionText = document.getElementById("question-text");
 const answerOptions = document.getElementById("answer-options");
 const feedbackMessage = document.getElementById("feedback-message");
 const feedbackInfo = document.getElementById("feedback-info");
-const questionImage = document.querySelectorAll(".question-image")
+const questionImage = document.querySelectorAll(".question-image");
 const finalScore = document.getElementById("final-score");
+const countdownText = document.getElementById("countdown"); // visuel timer
 
 // Tildeler funktioner til knapper
 document.getElementById("next-button").onclick = nextQuestion;
 document.getElementById("restart-button").onclick = restartQuiz;
 
-// Funktion der viser et spørgsmål og svarmuligheder
+// Viser et spørgsmål og svar
 function showQuestion() {
-    // Viser quiz-sektionen og skjuler de andre
     quizSection.classList.add("visible");
     feedbackSection.classList.remove("visible");
     resultSection.classList.remove("visible");
 
-     // Henter det aktuelle spørgsmål
     const q = questions[current];
-     // Opdaterer spørgsmålsnummer og tekst
     questionNumber.textContent = `Spørgsmål ${current + 1} / ${questions.length}`;
     questionText.textContent = q.question;
-   // Opdaterer billedet til spørgsmålet
-    questionImage.forEach((image) =>{
+
+    questionImage.forEach((image) => {
         image.src = q.image;
     });
-   // Rydder tidligere svarmuligheder
+
     answerOptions.innerHTML = "";
-// Opretter en knap for hvert svar
     q.answers.forEach((answer, index) => {
         const btn = document.createElement("button");
         btn.className = "answer-button";
@@ -121,24 +117,21 @@ function showQuestion() {
         answerOptions.appendChild(btn);
     });
 }
-// Funktion der tjekker om valgt svar er korrekt
+
+// Tjekker om svaret er korrekt
 function checkAnswer(selectedIndex) {
     const q = questions[current];
-        // Skjuler quiz og viser feedback-sektionen
     quizSection.classList.remove("visible");
     feedbackSection.classList.add("visible");
     feedbackMessage.textContent = selectedIndex === q.correct ? "Rigtigt!" : "Forkert!";
-    if(selectedIndex === q.correct)
-    {
-         // Ændrer tekstskygge afhængigt af om det var rigtigt eller forkert
-        feedbackMessage.style = "text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.6);"
-    } else {
-        feedbackMessage.style = "text-shadow: -2px -2px 5px rgba(255, 0, 0, 0.6);"
-    }
+    feedbackMessage.style = selectedIndex === q.correct ?
+        "text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.6);" :
+        "text-shadow: -2px -2px 5px rgba(255, 0, 0, 0.6);";
     feedbackInfo.textContent = q.feedback;
     if (selectedIndex === q.correct) score++;
 }
-// Funktion der går videre til næste spørgsmål eller viser resultat
+
+// Næste spørgsmål eller vis resultat
 function nextQuestion() {
     current++;
     if (current < questions.length) {
@@ -147,48 +140,86 @@ function nextQuestion() {
         showResult();
     }
 }
-// Funktion der viser slutresultat
+
+// Viser slutresultat
 function showResult() {
     resultSection.classList.add("visible");
     feedbackSection.classList.remove("visible");
-    quizSection.classList.remove("visible")
+    quizSection.classList.remove("visible");
     finalScore.textContent = `Du fik ${score} ud af ${questions.length} rigtige`;
+
+    startInactivityTimer(); // Starter inaktivitetstimer
 }
 
-// Funktion der styrer popup-infografik
+// Popup-infografik
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("popupModal");
     const modalImg = document.getElementById("popupImage");
     const thumbnail = document.getElementById("infographicThumbnail");
     const closeBtn = document.querySelector(".close");
 
-// Når man klikker på infografik-thumbnail
     thumbnail.addEventListener("click", function () {
-      modal.style.display = "block";
-      modalImg.src = this.src;
+        modal.style.display = "block";
+        modalImg.src = this.src;
     });
 
-   // Lukker modal-vinduet ved klik på luk-knappen
     closeBtn.addEventListener("click", function () {
-      modal.style.display = "none";
+        modal.style.display = "none";
     });
 
-  // Lukker modal hvis man klikker udenfor billedet
     window.addEventListener("click", function (e) {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
     });
-  });
-// Funktion der nulstiller quizzen og starter forfra
+});
+
+// Nulstiller quiz
 function restartQuiz() {
     current = 0;
     score = 0;
     showQuestion();
+    startInactivityTimer();
 }
 
-// Start quizzen
-window.onload = showQuestion;
+// Global inaktivitetstimer
+let inactivityTimer;
+let countdownInterval;
+let secondsLeft = 120;
 
+function startInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    clearInterval(countdownInterval);
+    secondsLeft = 120;
 
+    if (countdownText) {
+        countdownText.textContent = "";
+    }
 
+    countdownInterval = setInterval(() => {
+        secondsLeft--;
+        if (countdownText) {
+            countdownText.textContent = `Du bliver sendt tilbage til start om ${secondsLeft} sekunder`;
+        }
+        if (secondsLeft <= 0) {
+            clearInterval(countdownInterval);
+        }
+    }, 1000);
+
+    inactivityTimer = setTimeout(() => {
+        window.location.href = "../index.html"; 
+    }, 200000); // 2 minutter
+}
+
+// Aktivitetsdetektion – nulstil timer
+["mousemove", "keydown", "click", "touchstart"].forEach(event => {
+    document.addEventListener(event, () => {
+        startInactivityTimer();
+    });
+});
+
+// Start quiz og timer
+window.onload = function () {
+    showQuestion();
+    startInactivityTimer();
+};

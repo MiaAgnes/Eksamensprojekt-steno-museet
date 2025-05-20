@@ -107,14 +107,13 @@ const planetInfo = {
 
 // Feedback-tekster der vises efter hvert valg på en planet
 const feedbackText = {
-  'bloodmoon': 'På Blodmånen har Susi mest lyst til chokolade og te – det trøster og varmer. Hun er træt og har brug for ro, så en tur må vente til senere i cyklussen.',
-  'spireplaneten': 'På Spireplaneten elsker Susi at lege og grine med sine venner. Hun vil slet ikke sove, for der er alt for meget sjov at lave!',
-  'powerboost': 'På Powerboost-planeten får Susi masser af energi! Hun vil hellere gå og bevæge sig, end at sidde stille og se tv.',
-  'aegloesning': 'På Ægløsnings Planeten er Susi fuld af energi og lidt flirtende. Hun vil hellere bowle, lege og måske give et lille kys end at sidde stille og slappe af.',
-  'pms': 'På PMS Øen har Susi mest lyst til en kæmpe burger og lidt alene-tid. Hun gider ikke triste TikTok-videoer, men vil bare hygge sig i fred.',
-  'skygge': 'På Skygge Planeten vil Susi bare slappe af med en varmepude og ro omkring sig. Ingen hunde der gør, tak!'
+  'bloodmoon': 'På Blodmånen har Susi mest lyst til chokolade og en kop varm te. Hun føler sig lidt træt og har brug for ro og tryghed omkring sig. En tur må vente til senere i cyklussen, når hun har fået hvilet ud og samlet energi.',
+  'spireplaneten': 'På Spireplaneten bobler Susi af glæde og grin! Hun elsker at lege vilde lege med sine venner og finder hele tiden på nye sjove ting. Hun synes det er alt for tidligt at sove, når der er så meget, hun gerne vil nå.',
+  'powerboost': 'På Powerboost-planeten vågner Susi med krudt i benene og store smil. Hun vil allerhelst ud at løbe, danse og hoppe rundt uden pause. At sidde stille og kigge på tv virker bare kedeligt lige nu, der skal ske noget!',
+  'aegloesning': 'På Ægløsnings Planeten stråler Susi af selvtillid og sjov energi. Hun føler sig ekstra glad og vil gerne være tæt på sine venner. Hun får lyst til at bowle, pjatte og måske endda give et lille hemmeligt kys til én, hun kan lide.',
+  'pms': 'På PMS Øen er Susi lidt træt af det hele og har mest lyst til at være sig selv. Hun drømmer om en kæmpe burger og en god film, hvor ingen forstyrrer. De triste videoer springer hun over. Hun vil bare hygge sig i fred og ro.',
+  'skygge': 'På Skygge Planeten har Susi brug for ro og slappe af. Hun pakker sig ind i tæpper, finder varmepuden frem og vil helst ikke snakke for meget. Hun håber heller ikke at naboens hund begynder at gø for meget!'
 };
-
 // Funktion der vælger en planet, opdaterer info og viser info-skærmen
 function choosePlanet(planet) {
   currentPlanet = planet;
