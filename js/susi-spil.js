@@ -215,6 +215,7 @@ function returnToPlanets() {
   susiVideo.play();
   
  // Gå til næste planet
+  currentPlanetIndex = planetOrder.indexOf(currentPlanet);
   currentPlanetIndex++;
   
  // Opdater planeternes låsetilstand og fremhæv den aktuelle planet
