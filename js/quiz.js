@@ -1,5 +1,10 @@
 "use strict"
 
+window.onload = function () {
+    showQuestion();
+    startInactivityTimer(); 
+};
+
 // Array med alle spørgsmål og svarmuligheder(objekter)
 const questions = [
     {
@@ -147,8 +152,6 @@ function showResult() {
     feedbackSection.classList.remove("visible");
     quizSection.classList.remove("visible");
     finalScore.textContent = `Du fik ${score} ud af ${questions.length} rigtige`;
-
-    startInactivityTimer(); // Starter inaktivitetstimer
 }
 
 // Popup-infografik
