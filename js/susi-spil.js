@@ -213,10 +213,13 @@ function returnToPlanets() {
   susiVideoSource.src = '../images/susi-neutral.webm';
   susiVideo.load();
   susiVideo.play();
+  
  // Gå til næste planet
   currentPlanetIndex++;
+  
  // Opdater planeternes låsetilstand og fremhæv den aktuelle planet
   updatePlanetLockState();
+  showScreen('planetScreen');
   updateActivePlanetHighlight();
 
     // Hvis alle planeter er gennemført, vis cutscene
@@ -276,4 +279,6 @@ function updateActivePlanetHighlight() {
 document.addEventListener("DOMContentLoaded", () => {
   updatePlanetLockState();
   updateActivePlanetHighlight();
+
+  document.getElementById('continueButton').addEventListener('click', returnToPlanets);
 });
