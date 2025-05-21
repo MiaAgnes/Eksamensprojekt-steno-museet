@@ -201,7 +201,7 @@ function startInactivityTimer() {
 
     inactivityTimer = setTimeout(() => {
         window.location.href = "../index.html"; 
-    }, 200000); // 2 minutter
+    }, 120000); // 2 minutter
 }
 
 // Nulstiller timer efter klik
