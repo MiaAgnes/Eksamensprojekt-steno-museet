@@ -4,7 +4,7 @@
 let currentPlanet = '';
 let currentPlanetIndex = 0;
 
-// Definer rækkefølgen på planeterne i spillet
+// Definerer rækkefølgen på planeterne i spillet
 const planetOrder = [
   'bloodmoon',
   'spireplaneten',
@@ -23,18 +23,19 @@ function showScreen(screenId) {
     cutsceneVideo.currentTime = 0;
   }
 
-  // Skift aktiv skærm: fjern 'active' fra alle skærme
+  // fjerner alle skærme
   document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
-  // Tilføj 'active' til den valgte skærm
+
+  // viser den rigtige skærm
   document.getElementById(screenId).classList.add('active');
 
-   // Hvis det er actionskærmen, opdater valgmulighederne
+  // hvis der er en actionscreen opdaterderer den mulighederne
   if (screenId === "actionScreen") {
     updateChoices();
   }
 }
 
-// Objekter med info om hver planet i spillet: titel, tekst, billede, svarmuligheder og korrekte svar
+// Java Script object med info om hver planet i spillet: titel, tekst, billede, svarmuligheder og korrekte svar
 const planetInfo = {
   'bloodmoon': {
     title: 'Blodmånen',
@@ -152,6 +153,7 @@ function choosePlanet(planet) {
   // Vis planets info skærm
   showScreen('planetInfoScreen');
 }
+
 // Funktion der håndterer brugerens valg af aktivitet på en planet
 function handleChoice(choice) {
    // Find video- og tekst-elementer til feedback
@@ -159,11 +161,11 @@ function handleChoice(choice) {
   const susiVideoSource = document.getElementById('susiVideoSource');
   const feedbackHeaderEl = document.getElementById('feedbackHeader');
   const feedbackMessageEl = document.getElementById('feedbackMessage');
- // Hent korrekte svar til den aktuelle planet
   const correctAnswers = planetInfo[currentPlanet]?.correctAnswer || [];
   // Definer feedback-indhold
   let feedbackHeader = '';
   let feedbackMessage = '';
+
 // Tjek om brugerens valg er korrekt
   if (correctAnswers.includes(choice)) {
     feedbackHeader = 'Susi blev glad!';
@@ -271,10 +273,7 @@ function updateActivePlanetHighlight() {
   }
 }
 
-// Initial opstart når siden er loadet
 document.addEventListener("DOMContentLoaded", () => {
   updatePlanetLockState();
   updateActivePlanetHighlight();
 });
-
-

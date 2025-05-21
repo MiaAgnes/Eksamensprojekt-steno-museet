@@ -4,7 +4,6 @@
     box-sizing: border-box;
   }
 
-    /* Styling af hele siden */
   body {
     background-image: url('../images/grainy-background.webp'); 
     background-size: cover;

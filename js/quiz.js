@@ -1,6 +1,6 @@
 "use strict"
 
-// Array med alle spørgsmål og svarmuligheder
+// Array med alle spørgsmål og svarmuligheder(objekter)
 const questions = [
     {
         question: "Hvor lang tid varer menstruationscyklussen typisk?",
@@ -88,7 +88,6 @@ const feedbackMessage = document.getElementById("feedback-message");
 const feedbackInfo = document.getElementById("feedback-info");
 const questionImage = document.querySelectorAll(".question-image");
 const finalScore = document.getElementById("final-score");
-const countdownText = document.getElementById("countdown"); // visuel timer
 
 // Tildeler funktioner til knapper
 document.getElementById("next-button").onclick = nextQuestion;
@@ -108,6 +107,7 @@ function showQuestion() {
         image.src = q.image;
     });
 
+    // rydder gamle svarmuligheder inden nye vises
     answerOptions.innerHTML = "";
     q.answers.forEach((answer, index) => {
         const btn = document.createElement("button");
@@ -125,7 +125,7 @@ function checkAnswer(selectedIndex) {
     feedbackSection.classList.add("visible");
     feedbackMessage.textContent = selectedIndex === q.correct ? "Rigtigt!" : "Forkert!";
     feedbackMessage.style = selectedIndex === q.correct ?
-        "text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.6);" :
+        "text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.6);" : // styling som viser om svaret er rigtigt eller forkert
         "text-shadow: -2px -2px 5px rgba(255, 0, 0, 0.6);";
     feedbackInfo.textContent = q.feedback;
     if (selectedIndex === q.correct) score++;
@@ -158,15 +158,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const thumbnail = document.getElementById("infographicThumbnail");
     const closeBtn = document.querySelector(".close");
 
+    // Gør billedet større ved klik
     thumbnail.addEventListener("click", function () {
         modal.style.display = "block";
         modalImg.src = this.src;
     });
 
+    // Lukker billedet ved klik
     closeBtn.addEventListener("click", function () {
         modal.style.display = "none";
     });
 
+    // Gør så billedet lukker når man klikker udenfor billedet
     window.addEventListener("click", function (e) {
         if (e.target === modal) {
             modal.style.display = "none";
@@ -182,36 +185,23 @@ function restartQuiz() {
     startInactivityTimer();
 }
 
-// Global inaktivitetstimer
+// inaktivitetstimer
 let inactivityTimer;
 let countdownInterval;
 let secondsLeft = 120;
 
+// Starter timer på 120 sekunder
 function startInactivityTimer() {
     clearTimeout(inactivityTimer);
     clearInterval(countdownInterval);
     secondsLeft = 120;
-
-    if (countdownText) {
-        countdownText.textContent = "";
-    }
-
-    countdownInterval = setInterval(() => {
-        secondsLeft--;
-        if (countdownText) {
-            countdownText.textContent = `Du bliver sendt tilbage til start om ${secondsLeft} sekunder`;
-        }
-        if (secondsLeft <= 0) {
-            clearInterval(countdownInterval);
-        }
-    }, 1000);
 
     inactivityTimer = setTimeout(() => {
         window.location.href = "../index.html"; 
     }, 200000); // 2 minutter
 }
 
-// Aktivitetsdetektion – nulstil timer
+// Nulstiller timer efter klik
 ["mousemove", "keydown", "click", "touchstart"].forEach(event => {
     document.addEventListener(event, () => {
         startInactivityTimer();
