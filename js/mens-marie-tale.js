@@ -1,7 +1,7 @@
 "use strict";
 
 (function () {
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => { // sikrer at JavaScript ikke prøver at bruge elementer på siden før de findes
     const overlay = document.getElementById("startOverlay");
     const mainContent = document.getElementById("mainContent");
     const voiceAudio1 = document.getElementById("voiceAudio1");
